@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5daa1bfd-aaed-44da-abf0-a91f2603f16c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/JsonUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/UsernameLogic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/MessageHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/MessageHandlerCreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/NewSquadHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/ShowSquadsHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/SignUpHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Game/OnlineUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Game/Squad.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Game/UserData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/ClientHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/MessageType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/NewSquadMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/ShowSquadsMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/SignUPMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Server.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myProject/Database.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myProject/MyProject.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2jkC05t6nd10tMOMk22px0iPFkn" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/Namazi/Favorites/WindowKillServer"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Namazi\Favorites\WindowKillServer\src\main\java\model\networkCommunication" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="controller" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="WindowKillServer" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5daa1bfd-aaed-44da-abf0-a91f2603f16c" name="Changes" comment="" />
+      <created>1721921463343</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1721921463343</updated>
+    </task>
+    <servers />
+  </component>
+</project>

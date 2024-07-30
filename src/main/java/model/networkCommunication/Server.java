@@ -24,8 +24,8 @@ public class Server {
             }
             Socket clientSocket = serverSocket.accept();
 
-            ClientHandler clientHandler = new ClientHandler(clientSocket);
-            MyProject.getInstance().getDatabase().getClientHandlerMap().put("",clientHandler);
+            TCPClientHandler TCPClientHandler = new TCPClientHandler(clientSocket);
+            MyProject.getInstance().getDatabase().getClientHandlerMap().put("", TCPClientHandler);
         }
     }
 

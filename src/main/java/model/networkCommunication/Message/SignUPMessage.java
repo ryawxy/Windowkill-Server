@@ -1,5 +1,7 @@
 package model.networkCommunication.Message;
 
+import java.util.UUID;
+
 public class SignUPMessage extends Message{
     private String username;
 
@@ -17,4 +19,6 @@ public class SignUPMessage extends Message{
     public void setUsername(String username) {
         this.username = username;
     }
+
+
 }

@@ -1,9 +1,14 @@
 package model.Game;
 
+import model.enums.UserStatus;
+
 public class UserData {
     private String username;
-    private int XP;
+    private int XP = 10000;
     private boolean isUserOnline;
+    private String squad;
+    private UserStatus status;
+
 
     public String getUsername() {
         return username;
@@ -27,5 +32,21 @@ public class UserData {
 
     public void setUserOnline(boolean userOnline) {
         isUserOnline = userOnline;
+    }
+
+    public String getSquad() {
+        return squad;
+    }
+
+    public void setSquad(String squad) {
+        this.squad = squad;
+    }
+
+    public UserStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(UserStatus status) {
+        this.status = status;
     }
 }

@@ -4,16 +4,16 @@ import controller.network.MessageHandler.MessageHandler;
 import controller.network.MessageHandler.MessageHandlerCreator;
 import model.Game.OnlineUser;
 import model.Game.Squad;
-import model.networkCommunication.ClientHandler;
+import model.networkCommunication.TCPClientHandler;
 import model.networkCommunication.Message.Message;
-import model.networkCommunication.Message.MessageType;
+import model.enums.MessageType;
 
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Database {
-    private Map<String, ClientHandler> clientHandlerMap;
+    private Map<String, TCPClientHandler> clientHandlerMap;
     private Map<String, OnlineUser> allUsers;
     private Map<String, ArrayList<Message>> messageQueMap;
     private Map<MessageType, MessageHandler> messageHandlerMap;
@@ -27,11 +27,11 @@ public class Database {
         squadMap = new ConcurrentHashMap<>();
     }
 
-    public Map<String, ClientHandler> getClientHandlerMap() {
+    public Map<String, TCPClientHandler> getClientHandlerMap() {
         return clientHandlerMap;
     }
 
-    public void setClientHandlerMap(Map<String, ClientHandler> clientHandlerMap) {
+    public void setClientHandlerMap(Map<String, TCPClientHandler> clientHandlerMap) {
         this.clientHandlerMap = clientHandlerMap;
     }
 

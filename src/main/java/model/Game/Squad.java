@@ -6,6 +6,7 @@ public class Squad {
     private String squadName;
     private String admin;
     private ArrayList<String> members;
+    private int vault;
 
     public Squad(String squadName,String admin) {
         this.squadName = squadName;
@@ -37,5 +38,13 @@ public class Squad {
 
     public void setMembers(ArrayList<String> members) {
         this.members = members;
+    }
+
+    public int getVault() {
+        return vault;
+    }
+
+    public void setVault(int vault) {
+        this.vault = vault;
     }
 }

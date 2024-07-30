@@ -1,6 +1,6 @@
 package controller.network.MessageHandler;
 
-import model.networkCommunication.Message.MessageType;
+import model.enums.MessageType;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -19,6 +19,14 @@ public class MessageHandlerCreator {
         messageHandlerMap.put(MessageType.SIGN_UP,new SignUpHandler());
         messageHandlerMap.put(MessageType.NEW_SQUAD,new NewSquadHandler());
         messageHandlerMap.put(MessageType.SHOW_SQUADS,new ShowSquadsHandler());
+        messageHandlerMap.put(MessageType.JOIN_SQUAD,new JoinSquadRequestHandler());
+        messageHandlerMap.put(MessageType.REQUEST_TO_ADMIN,new RequestToAdminHandler());
+        messageHandlerMap.put(MessageType.LEAVE_SQUAD,new LeaveSquadHandler());
+        messageHandlerMap.put(MessageType.SQUAD_DATA,new SquadDataHandler());
+        messageHandlerMap.put(MessageType.SERVER_CONNECTION,new ServerConnectionHandler());
+        messageHandlerMap.put(MessageType.REMOVE_MEMBER,new RemoveMemberHandler());
+        messageHandlerMap.put(MessageType.PAY_TO_VAULT,new PayToVaultHandler());
+        messageHandlerMap.put(MessageType.INIT,new InitHandler());
         return messageHandlerMap;
     }
 }

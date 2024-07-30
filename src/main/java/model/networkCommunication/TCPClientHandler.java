@@ -2,6 +2,7 @@ package model.networkCommunication;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Scanner;
 
@@ -13,7 +14,7 @@ import controller.network.MessageHandler.MessageHandler;
 import model.networkCommunication.Message.Message;
 import myProject.MyProject;
 
-public class ClientHandler extends Thread {
+public class TCPClientHandler extends Thread {
 
     private  final ObjectMapper objectMapper;
     private final Socket socket;
@@ -21,9 +22,11 @@ public class ClientHandler extends Thread {
     private final PrintWriter sender;
     private volatile String username = "";
     private volatile boolean isClientOnline;
+    private InetAddress udpAddress;
+    private int udpPort;
 
 
-public ClientHandler(Socket clientSocket) throws IOException {
+public TCPClientHandler(Socket clientSocket) throws IOException {
 
     socket = clientSocket;
     receiver = new Scanner(clientSocket.getInputStream());
@@ -40,14 +43,16 @@ public ClientHandler(Socket clientSocket) throws IOException {
         while (isClientOnline && receiver.hasNextLine() ) {
 
             String receivedJson = receiver.nextLine();
-            System.out.println(receivedJson);
-                if (receivedJson == null) {
+
+            if (receivedJson == null) {
                     break;
                 }
             try {
-                Message receivedMessage = JsonUtils.deserializeFromJson(receivedJson, Message.class);
 
+                Message receivedMessage = JsonUtils.deserializeFromJson(receivedJson, Message.class);
+                System.out.println(receivedJson);
                 processMessage(receivedMessage);
+
             } catch (JsonProcessingException e) {
                 throw new RuntimeException(e);
             }
@@ -72,5 +77,21 @@ public ClientHandler(Socket clientSocket) throws IOException {
             throw new RuntimeException(e);
         }
 
+    }
+
+    public InetAddress getUdpAddress() {
+        return udpAddress;
+    }
+
+    public void setUdpAddress(InetAddress udpAddress) {
+        this.udpAddress = udpAddress;
+    }
+
+    public int getUdpPort() {
+        return udpPort;
+    }
+
+    public void setUdpPort(int udpPort) {
+        this.udpPort = udpPort;
     }
 }

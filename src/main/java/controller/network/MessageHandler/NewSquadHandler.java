@@ -12,9 +12,10 @@ public class NewSquadHandler implements MessageHandler{
             String squadName = newSquadMessage.getSquadName();
             String admin = newSquadMessage.getAdmin();
             Squad squad = new Squad(squadName,admin);
+            squad.getMembers().add(newSquadMessage.getAdmin());
+            squad.getMembersXP().put(admin,MyProject.getInstance().getDatabase().getAllUsers().get(admin).getUserData().getXP());
+            squad.getMembersStatus().put(admin,"Online");
             MyProject.getInstance().getDatabase().getSquadMap().put(squadName,squad);
-            MyProject.getInstance().getDatabase().getSquadMap().get(squadName).getMembers().add(admin);
-            MyProject.getInstance().getDatabase().getSquadMap().get(squadName).getMembersXP().put(admin,MyProject.getInstance().getDatabase().getAllUsers().get(admin).getUserData().getXP());
             MyProject.getInstance().getDatabase().getAllUsers().get(admin).getUserData().setSquad(squadName);
 
 

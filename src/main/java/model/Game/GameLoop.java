@@ -4,6 +4,7 @@ import model.networkCommunication.Message.StartGameMessage;
 import myProject.MyProject;
 
 import javax.swing.*;
+import java.util.Random;
 
 public class GameLoop extends Thread{
     private int countTime;
@@ -53,7 +54,17 @@ public class GameLoop extends Thread{
                 if(countTime == 100){
 
                     StartGameMessage startGameMessage = new StartGameMessage();
-                    for(String players : game.getPlayers()) startGameMessage.getPlayers().add(players);
+                    for(String players : game.getPlayers()){
+                        Random random = new Random();
+                        UserData userData = new UserData();
+                        userData.setUsername(players);
+                        userData.setXP(MyProject.getInstance().getDatabase().getAllUsers().get(players).getUserData().getXP());
+                        userData.setX(random.nextInt(300));
+                        userData.setY(random.nextInt(300));
+                        startGameMessage.getUsers().add(userData);
+                    }
+
+
                     startGameMessage.setBattleMode(game.getBattleMode());
 
                     for(String player : game.getPlayers()) MyProject.getInstance().getDatabase().

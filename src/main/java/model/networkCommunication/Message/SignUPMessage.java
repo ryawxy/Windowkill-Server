@@ -4,6 +4,7 @@ import java.util.UUID;
 
 public class SignUPMessage extends Message{
     private String username;
+    private int localPort;
 
     public SignUPMessage() {
     }
@@ -20,5 +21,11 @@ public class SignUPMessage extends Message{
         this.username = username;
     }
 
+    public int getLocalPort() {
+        return localPort;
+    }
 
+    public void setLocalPort(int localPort) {
+        this.localPort = localPort;
+    }
 }

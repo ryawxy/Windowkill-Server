@@ -4,42 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5daa1bfd-aaed-44da-abf0-a91f2603f16c" name="Changes" comment="UDP connection created">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/AnswerToBattleRequestHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/BattleRequestHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/ChangeStateHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/DisconnectionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/StartBattleHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/StartGameHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Game/BattleCreator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Game/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Game/GameLoop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/AnswerToBattleRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/BattleRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/ChangeStateMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/DisconnectionMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/StartBattleMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/StartGameMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="5daa1bfd-aaed-44da-abf0-a91f2603f16c" name="Changes" comment="initiated battle">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/AnswerToSummonHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/ChangeUserDataHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/SummonHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/AnswerToSummonMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/SummonMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/JoinSquadRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/JoinSquadRequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/LeaveSquadHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/LeaveSquadHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/MessageHandlerCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/MessageHandlerCreator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/NewSquadHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/NewSquadHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/RemoveMemberHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/RemoveMemberHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/RequestToAdminHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/RequestToAdminHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/SignUpHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/SignUpHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Game/GameLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Game/GameLoop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Game/Squad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Game/Squad.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Game/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Game/UserData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/enums/MessageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enums/MessageType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/enums/UserStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enums/UserStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/JoinSquadRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/JoinSquadRequestMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/RequestToAdminMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/RequestToAdminMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/ShowSquadsMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/ShowSquadsMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/TCPClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/TCPClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/UDPClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/UDPClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/SignUPMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/SignUPMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/StartGameMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/StartGameMessage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,22 +49,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Backup/WindowKill&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/Backup/WindowKill"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Namazi\Favorites\WindowKillServer\src\main\java\model\networkCommunication" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="model.networkCommunication.Message" />
       <recent name="controller.network.MessageHandler" />
+      <recent name="model.networkCommunication.Message" />
       <recent name="model.networkCommunication.Packet" />
       <recent name="controller.network.PacketHandler" />
       <recent name="controller" />
@@ -122,7 +104,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722349641275</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="initiated battle">
+      <option name="closed" value="true" />
+      <created>1722502251744</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1722502251744</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -139,6 +129,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="sign-up, create squad" />
     <MESSAGE value="UDP connection created" />
-    <option name="LAST_COMMIT_MESSAGE" value="UDP connection created" />
+    <MESSAGE value="initiated battle" />
+    <option name="LAST_COMMIT_MESSAGE" value="initiated battle" />
   </component>
 </project>

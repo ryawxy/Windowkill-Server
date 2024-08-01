@@ -18,4 +18,7 @@ public enum MessageType {
     ANSWER_TO_BATTLE_REQUEST,
     START_GAME,
     CHANGE_STATE,
+    CHANGE_USER_DATA,
+    SUMMON,
+    ANSWER_TO_SUMMON,
 }

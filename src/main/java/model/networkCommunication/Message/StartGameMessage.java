@@ -1,5 +1,6 @@
 package model.networkCommunication.Message;
 
+import model.Game.UserData;
 import model.enums.MessageType;
 
 import java.util.ArrayList;
@@ -7,7 +8,7 @@ import java.util.ArrayList;
 public class StartGameMessage extends Message{
 
     private String battleMode;
-    private ArrayList<String> players = new ArrayList<>();
+    private ArrayList<UserData> users = new ArrayList<>();
 
     public StartGameMessage() {
         setMessageType(MessageType.START_GAME);
@@ -22,11 +23,11 @@ public class StartGameMessage extends Message{
         this.battleMode = battleMode;
     }
 
-    public ArrayList<String> getPlayers() {
-        return players;
+    public ArrayList<UserData> getUsers() {
+        return users;
     }
 
-    public void setPlayers(ArrayList<String> players) {
-        this.players = players;
+    public void setUsers(ArrayList<UserData> users) {
+        this.users = users;
     }
 }

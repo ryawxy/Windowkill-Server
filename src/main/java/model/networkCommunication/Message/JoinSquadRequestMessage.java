@@ -1,7 +1,9 @@
 package model.networkCommunication.Message;
 
+import model.Game.UserData;
 import model.enums.MessageType;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class JoinSquadRequestMessage extends Message{
@@ -12,6 +14,7 @@ public class JoinSquadRequestMessage extends Message{
     private int XP;
     private HashMap<String,Integer> membersXP = new HashMap<>();
     private HashMap<String,String> membersStatus = new HashMap<>();
+    private ArrayList<UserData> users = new ArrayList<>();
 
     public JoinSquadRequestMessage() {
         setMessageType(MessageType.JOIN_SQUAD);
@@ -71,5 +74,13 @@ public class JoinSquadRequestMessage extends Message{
 
     public void setMembersStatus(HashMap<String, String> membersStatus) {
         this.membersStatus = membersStatus;
+    }
+
+    public ArrayList<UserData> getUsers() {
+        return users;
+    }
+
+    public void setUsers(ArrayList<UserData> users) {
+        this.users = users;
     }
 }

@@ -10,6 +10,8 @@ public class UserData {
     private UserStatus status;
     private int vault;
     private int numberOfMembers;
+    private int x;
+    private int y;
 
 
     public String getUsername() {
@@ -68,4 +70,19 @@ public class UserData {
         this.numberOfMembers = numberOfMembers;
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
 }

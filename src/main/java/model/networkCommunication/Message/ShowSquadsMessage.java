@@ -8,6 +8,7 @@ public class ShowSquadsMessage extends Message {
 
     private String username;
     private ArrayList<String> squads;
+    private int XP;
 
     public ShowSquadsMessage() {
     }
@@ -26,5 +27,13 @@ public class ShowSquadsMessage extends Message {
 
     public void setSquads(ArrayList<String> squads) {
         this.squads = squads;
+    }
+
+    public int getXP() {
+        return XP;
+    }
+
+    public void setXP(int XP) {
+        this.XP = XP;
     }
 }

@@ -19,6 +19,7 @@ public class JoinSquadRequestHandler implements MessageHandler{
         RequestToAdminMessage request = new RequestToAdminMessage();
         request.setUsername(message.getUsername());
         request.setSquad(message.getSquad());
+        request.setXP(message.getXP());
         request.setNumberOfMembers(MyProject.getInstance().getDatabase().getSquadMap().get(message.getSquad()).getMembers().size());
         String admin = MyProject.getInstance().getDatabase().getSquadMap().get(message.getSquad()).getAdmin();
         MyProject.getInstance().getDatabase().getClientHandlerMap().get(admin).sendMessage(request);

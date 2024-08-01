@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import controller.JsonUtils;
 import controller.network.MessageHandler.MessageHandler;
+import model.Game.BattleCreator;
 import model.networkCommunication.Message.Message;
 import myProject.MyProject;
 
@@ -24,6 +25,7 @@ public class TCPClientHandler extends Thread {
     private volatile boolean isClientOnline;
     private InetAddress udpAddress;
     private int udpPort;
+    private Scanner scanner = new Scanner(System.in);
 
 
 public TCPClientHandler(Socket clientSocket) throws IOException {
@@ -36,10 +38,13 @@ public TCPClientHandler(Socket clientSocket) throws IOException {
     objectMapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
     isClientOnline = true;
     start();
+
+
 }
 
     @Override
     public void run() {
+        new Thread(this::startBattle).start();
         while (isClientOnline && receiver.hasNextLine() ) {
 
             String receivedJson = receiver.nextLine();
@@ -72,11 +77,23 @@ public TCPClientHandler(Socket clientSocket) throws IOException {
     public void sendMessage(Message message){
         try {
             String jsonString = JsonUtils.serializeToJson(message);
+            System.out.println(jsonString);
             sender.println(jsonString);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
 
+    }
+    public void startBattle() {
+        System.out.println(33333);
+        while (true) {
+            System.out.println(222);
+            String input = scanner.nextLine();
+            if (input.equalsIgnoreCase("startBattle")) {
+                System.out.println(11111);
+                BattleCreator.initiateBattle();
+            }
+        }
     }
 
     public InetAddress getUdpAddress() {

@@ -1,5 +1,6 @@
 package controller.network.MessageHandler;
 
+import model.Game.OnlineUser;
 import model.Game.Squad;
 import model.networkCommunication.Message.Message;
 import model.networkCommunication.Message.RemoveMemberMessage;
@@ -19,6 +20,14 @@ public class RemoveMemberHandler implements MessageHandler{
         squad.getMembers().remove(user);
         MyProject.getInstance().getDatabase().getClientHandlerMap().get(user).sendMessage(removeMemberMessage);
         MyProject.getInstance().getDatabase().getClientHandlerMap().get(admin).sendMessage(removeMemberMessage);
+
+        for(OnlineUser onlineUser : MyProject.getInstance().getDatabase().getAllUsers().values()){
+            if(onlineUser.getUserData().getSquad().equals(squadName)) {
+                if (!onlineUser.getUserData().getUsername().equals(admin) && !onlineUser.getUserData().getUsername().equals(user)) {
+                    MyProject.getInstance().getDatabase().getClientHandlerMap().get(onlineUser.getUserData().getUsername()).sendMessage(removeMemberMessage);
+                }
+            }
+        }
 
     }
 }

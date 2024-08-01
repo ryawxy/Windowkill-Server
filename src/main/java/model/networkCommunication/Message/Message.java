@@ -19,6 +19,12 @@ import model.enums.MessageType;
 @JsonSubTypes.Type(value = RemoveMemberMessage.class, name = "REMOVE_MEMBER"),
 @JsonSubTypes.Type(value = PayToVaultMessage.class, name = "PAY_TO_VAULT"),
 @JsonSubTypes.Type(value = InitMessage.class, name = "INIT"),
+@JsonSubTypes.Type(value = StartBattleMessage.class, name = "START_BATTLE"),
+@JsonSubTypes.Type(value = DisconnectionMessage.class, name = "DISCONNECTION"),
+@JsonSubTypes.Type(value = BattleRequestMessage.class, name = "BATTLE_REQUEST"),
+@JsonSubTypes.Type(value = AnswerToBattleRequestMessage.class, name = "ANSWER_TO_BATTLE_REQUEST"),
+@JsonSubTypes.Type(value = StartGameMessage.class, name = "START_GAME"),
+@JsonSubTypes.Type(value = ChangeStateMessage.class, name = "CHANGE_STATE"),
 })
 
 public class Message {

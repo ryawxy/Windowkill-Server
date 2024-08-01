@@ -15,7 +15,7 @@ public class UDPClientHandler extends Thread {
     private static final int PORT = 54321;
     private final DatagramSocket udpSocket;
 
-    private Map<String, TCPClientHandler> clientHandlerMap;
+    private final Map<String, TCPClientHandler> clientHandlerMap;
     private static final int PACKET_SIZE = 1024;
     private static UDPClientHandler instance;
     public UDPClientHandler() throws SocketException {
@@ -49,7 +49,6 @@ public class UDPClientHandler extends Thread {
     }
     public void broadcastMessage(Packet packet,int senderPort) throws JsonProcessingException {
 
-
         String message = JsonUtils.serializeToJson(packet);
 
             byte[] sendData = message.getBytes();
@@ -79,9 +78,5 @@ public class UDPClientHandler extends Thread {
 
     public Map<String, TCPClientHandler> getClientHandlerMap() {
         return clientHandlerMap;
-    }
-
-    public void setClientHandlerMap(Map<String, TCPClientHandler> clientHandlerMap) {
-        this.clientHandlerMap = clientHandlerMap;
     }
 }

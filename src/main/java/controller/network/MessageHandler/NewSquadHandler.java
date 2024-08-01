@@ -14,6 +14,7 @@ public class NewSquadHandler implements MessageHandler{
             Squad squad = new Squad(squadName,admin);
             MyProject.getInstance().getDatabase().getSquadMap().put(squadName,squad);
             MyProject.getInstance().getDatabase().getSquadMap().get(squadName).getMembers().add(admin);
+            MyProject.getInstance().getDatabase().getSquadMap().get(squadName).getMembersXP().put(admin,MyProject.getInstance().getDatabase().getAllUsers().get(admin).getUserData().getXP());
             MyProject.getInstance().getDatabase().getAllUsers().get(admin).getUserData().setSquad(squadName);
 
 

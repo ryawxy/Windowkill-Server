@@ -31,8 +31,15 @@ public class LeaveSquadHandler implements MessageHandler{
             MyProject.getInstance().getDatabase().getSquadMap().remove(squadName);
 
         }else{
+
+            for(OnlineUser onlineUser : MyProject.getInstance().getDatabase().getAllUsers().values()) {
+                if (onlineUser.getUserData().getSquad().equals(squadName)) {
+                    if (!onlineUser.getUserData().getUsername().equals(leaveSquadMessage.getAdmin())) {
+                        MyProject.getInstance().getDatabase().getClientHandlerMap().get(onlineUser.getUserData().getUsername()).sendMessage(leaveSquadMessage);
+                    }
+                }
+            }
             squad.getMembers().remove(username);
-            MyProject.getInstance().getDatabase().getClientHandlerMap().get(username).sendMessage(leaveSquadMessage);
         }
 
 

@@ -27,6 +27,12 @@ public class MessageHandlerCreator {
         messageHandlerMap.put(MessageType.REMOVE_MEMBER,new RemoveMemberHandler());
         messageHandlerMap.put(MessageType.PAY_TO_VAULT,new PayToVaultHandler());
         messageHandlerMap.put(MessageType.INIT,new InitHandler());
+        messageHandlerMap.put(MessageType.START_BATTLE,new StartBattleHandler());
+        messageHandlerMap.put(MessageType.DISCONNECTION,new DisconnectionHandler());
+        messageHandlerMap.put(MessageType.BATTLE_REQUEST,new BattleRequestHandler());
+        messageHandlerMap.put(MessageType.ANSWER_TO_BATTLE_REQUEST,new AnswerToBattleRequestHandler());
+        messageHandlerMap.put(MessageType.START_GAME,new StartGameHandler());
+        messageHandlerMap.put(MessageType.CHANGE_STATE,new ChangeStateHandler());
         return messageHandlerMap;
     }
 }

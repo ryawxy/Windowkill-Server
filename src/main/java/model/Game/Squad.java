@@ -1,17 +1,19 @@
 package model.Game;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Squad {
     private String squadName;
     private String admin;
-    private ArrayList<String> members;
+    private ArrayList<String> members = new ArrayList<>();
+    private HashMap<String, Integer> membersXP = new HashMap<>();
     private int vault;
 
     public Squad(String squadName,String admin) {
         this.squadName = squadName;
         this.admin = admin;
-        members = new ArrayList<>();
+
 
 
     }
@@ -46,5 +48,13 @@ public class Squad {
 
     public void setVault(int vault) {
         this.vault = vault;
+    }
+
+    public HashMap<String, Integer> getMembersXP() {
+        return membersXP;
+    }
+
+    public void setMembersXP(HashMap<String, Integer> membersXP) {
+        this.membersXP = membersXP;
     }
 }

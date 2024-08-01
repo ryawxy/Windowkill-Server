@@ -2,11 +2,16 @@ package model.networkCommunication.Message;
 
 import model.enums.MessageType;
 
+import java.util.HashMap;
+
 public class JoinSquadRequestMessage extends Message{
     private String username;
     private String squad;
     private boolean isJoined;
     private int numberOfMembers;
+    private int XP;
+    private HashMap<String,Integer> membersXP = new HashMap<>();
+    private HashMap<String,String> membersStatus = new HashMap<>();
 
     public JoinSquadRequestMessage() {
         setMessageType(MessageType.JOIN_SQUAD);
@@ -42,5 +47,29 @@ public class JoinSquadRequestMessage extends Message{
 
     public void setNumberOfMembers(int numberOfMembers) {
         this.numberOfMembers = numberOfMembers;
+    }
+
+    public int getXP() {
+        return XP;
+    }
+
+    public void setXP(int XP) {
+        this.XP = XP;
+    }
+
+    public HashMap<String, Integer> getMembersXP() {
+        return membersXP;
+    }
+
+    public void setMembersXP(HashMap<String, Integer> membersXP) {
+        this.membersXP = membersXP;
+    }
+
+    public HashMap<String, String> getMembersStatus() {
+        return membersStatus;
+    }
+
+    public void setMembersStatus(HashMap<String, String> membersStatus) {
+        this.membersStatus = membersStatus;
     }
 }

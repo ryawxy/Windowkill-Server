@@ -24,7 +24,7 @@ public class SignUpHandler implements MessageHandler{
         if(usernameLogic.okToSignUp(((SignUPMessage)message).getUsername())){
             OnlineUser onlineUser = new OnlineUser();
             onlineUser.getUserData().setUsername(((SignUPMessage)message).getUsername());
-            onlineUser.getUserData().setStatus(UserStatus.valueOf("online"));
+            onlineUser.getUserData().setStatus(UserStatus.valueOf("Online"));
             MyProject.getInstance().getDatabase().getAllUsers().put(onlineUser.getUserData().getUsername(),onlineUser);
             MyProject.getInstance().getDatabase().getMessageQueMap().put(onlineUser.getUserData().getUsername(),new ArrayList<>());
 

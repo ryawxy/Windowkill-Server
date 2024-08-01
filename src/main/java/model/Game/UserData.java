@@ -8,6 +8,8 @@ public class UserData {
     private boolean isUserOnline;
     private String squad;
     private UserStatus status;
+    private int vault;
+    private int numberOfMembers;
 
 
     public String getUsername() {
@@ -49,4 +51,21 @@ public class UserData {
     public void setStatus(UserStatus status) {
         this.status = status;
     }
+
+    public int getVault() {
+        return vault;
+    }
+
+    public void setVault(int vault) {
+        this.vault = vault;
+    }
+
+    public int getNumberOfMembers() {
+        return numberOfMembers;
+    }
+
+    public void setNumberOfMembers(int numberOfMembers) {
+        this.numberOfMembers = numberOfMembers;
+    }
+
 }

@@ -7,7 +7,7 @@ public class RequestToAdminMessage extends Message{
     private boolean isAccepted;
     private String squad;
     private int numberOfMembers;
-
+    private int XP;
     public RequestToAdminMessage() {
         setMessageType(MessageType.REQUEST_TO_ADMIN);
     }
@@ -42,5 +42,13 @@ public class RequestToAdminMessage extends Message{
 
     public void setNumberOfMembers(int numberOfMembers) {
         this.numberOfMembers = numberOfMembers;
+    }
+
+    public int getXP() {
+        return XP;
+    }
+
+    public void setXP(int XP) {
+        this.XP = XP;
     }
 }

@@ -22,6 +22,7 @@ public class AnswerToBattleRequestHandler implements MessageHandler {
             game.getPlayers().add(answer.getTarget());
             game.getPlayers().add(answer.getSender());
             game.setBattleMode(answer.getBattleMode());
+            MyProject.getInstance().getDatabase().getGames().add(game);
             game.getGameLoop().start();
         }
     }
@@ -32,12 +33,13 @@ public class AnswerToBattleRequestHandler implements MessageHandler {
 
         ChangeStateMessage changeStateMessage2 = new ChangeStateMessage();
         changeStateMessage2.setUsername(answer.getTarget());
-        changeStateMessage2.setSquad("Busy");
+        changeStateMessage2.setState("Busy");
 
         for(Squad squad : MyProject.getInstance().getDatabase().getSquadMap().values()){
             if(squad.getMembers().contains(answer.getSender()) || squad.getMembers().contains(answer.getTarget())){
                 for(String member : squad.getMembers()){
                     MyProject.getInstance().getDatabase().getClientHandlerMap().get(member).sendMessage(changeStateMessage2);
+                    MyProject.getInstance().getDatabase().getClientHandlerMap().get(member).sendMessage(changeStateMessage);
 
                 }
             }

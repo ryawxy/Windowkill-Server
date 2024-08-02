@@ -10,6 +10,7 @@ public class Game {
 
     public Game(String battleMode) {
         this.battleMode = battleMode;
+
     }
 
     public String getBattleMode() {

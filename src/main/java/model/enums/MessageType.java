@@ -21,4 +21,6 @@ public enum MessageType {
     CHANGE_USER_DATA,
     SUMMON,
     ANSWER_TO_SUMMON,
+    PAUSE_GAME,
+    BUY_ITEM,
 }

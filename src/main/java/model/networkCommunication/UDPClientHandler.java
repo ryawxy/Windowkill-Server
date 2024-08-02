@@ -22,9 +22,6 @@ public class UDPClientHandler extends Thread {
         clientHandlerMap = new ConcurrentHashMap<>();
         this.udpSocket = new DatagramSocket(PORT);
         start();
-//        Thread thread = new Thread(this::broadcastMessage);
-//        thread.start();
-
     }
 
     @Override
@@ -37,8 +34,6 @@ public class UDPClientHandler extends Thread {
                 udpSocket.receive(receivedPacket);
                 String message = new String(receivedPacket.getData(),0, receivedPacket.getLength());
                 Packet receivePacket = JsonUtils.deserializeFromJson(message, Packet.class);
-
-                System.out.println(message);
 
                 broadcastMessage(receivePacket,receivePacket.getSenderPort());
             } catch (IOException e) {
@@ -56,11 +51,11 @@ public class UDPClientHandler extends Thread {
 
                  if(TCPClientHandler.getUdpPort() != senderPort){
 
-                   System.out.println(TCPClientHandler.getUdpAddress()+" "+ TCPClientHandler.getUdpPort());
+
                    try {
                     DatagramPacket  sendPacket = new DatagramPacket(sendData, sendData.length, InetAddress.getByName("localhost"), TCPClientHandler.getUdpPort());
                        udpSocket.send(sendPacket);
-                       System.out.println(sendPacket);
+
                    } catch (IOException e) {
                        throw new RuntimeException(e);
                    }

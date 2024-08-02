@@ -36,6 +36,7 @@ public class MessageHandlerCreator {
         messageHandlerMap.put(MessageType.CHANGE_USER_DATA,new ChangeUserDataHandler());
         messageHandlerMap.put(MessageType.SUMMON,new SummonHandler());
         messageHandlerMap.put(MessageType.ANSWER_TO_SUMMON,new AnswerToSummonHandler());
+        messageHandlerMap.put(MessageType.PAUSE_GAME,new PauseGameHandler());
         return messageHandlerMap;
     }
 }

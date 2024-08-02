@@ -1,6 +1,8 @@
 package model.Game;
 
+import model.enums.UserStatus;
 import model.networkCommunication.Message.StartGameMessage;
+import myProject.Database;
 import myProject.MyProject;
 
 import javax.swing.*;
@@ -50,7 +52,7 @@ public class GameLoop extends Thread{
             if (deltaFrame >= 1) {
 
                 countTime++;
-                System.out.println(countTime);
+
                 if(countTime == 100){
 
                     StartGameMessage startGameMessage = new StartGameMessage();
@@ -61,6 +63,9 @@ public class GameLoop extends Thread{
                         userData.setXP(MyProject.getInstance().getDatabase().getAllUsers().get(players).getUserData().getXP());
                         userData.setX(random.nextInt(300));
                         userData.setY(random.nextInt(300));
+                        userData.setStatus(UserStatus.Online);
+                        userData.setSquad(MyProject.getInstance().getDatabase().getAllUsers().get(players).getUserData().getSquad());
+                        userData.setColor(Database.getColors().get(game.getPlayers().indexOf(players)));
                         startGameMessage.getUsers().add(userData);
                     }
 

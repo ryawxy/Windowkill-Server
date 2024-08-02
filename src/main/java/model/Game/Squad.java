@@ -1,5 +1,7 @@
 package model.Game;
 
+import model.enums.VaultItem;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -10,6 +12,7 @@ public class Squad {
     private HashMap<String, Integer> membersXP = new HashMap<>();
     private HashMap<String,String> membersStatus = new HashMap<>();
     private int vault;
+    private HashMap<VaultItem,Integer> vaultItems = new HashMap<>();
 
     public Squad(String squadName,String admin) {
         this.squadName = squadName;
@@ -65,5 +68,13 @@ public class Squad {
 
     public void setMembersStatus(HashMap<String, String> membersStatus) {
         this.membersStatus = membersStatus;
+    }
+
+    public HashMap<VaultItem, Integer> getVaultItems() {
+        return vaultItems;
+    }
+
+    public void setVaultItems(HashMap<VaultItem, Integer> vaultItems) {
+        this.vaultItems = vaultItems;
     }
 }

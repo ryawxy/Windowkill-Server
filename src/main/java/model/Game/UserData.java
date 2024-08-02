@@ -1,6 +1,12 @@
 package model.Game;
 
+
+import model.enums.Color;
 import model.enums.UserStatus;
+import model.enums.VaultItem;
+
+import java.util.HashMap;
+
 
 public class UserData {
     private String username;
@@ -12,6 +18,8 @@ public class UserData {
     private int numberOfMembers;
     private int x;
     private int y;
+    private model.enums.Color color;
+    private HashMap<VaultItem,Integer> activatedItems = new HashMap<>();
 
 
     public String getUsername() {
@@ -84,5 +92,21 @@ public class UserData {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    public HashMap<VaultItem, Integer> getActivatedItems() {
+        return activatedItems;
+    }
+
+    public void setActivatedItems(HashMap<VaultItem, Integer> activatedItems) {
+        this.activatedItems = activatedItems;
     }
 }

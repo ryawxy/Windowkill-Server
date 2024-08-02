@@ -9,6 +9,7 @@ public class ShotGunPacket extends Packet{
     private UUID id;
     private int xVelocity;
     private int yVelocity;
+    private String shooter;
 
     public ShotGunPacket() {
         setPacketType(PacketType.SHOTGUN);
@@ -52,5 +53,13 @@ public class ShotGunPacket extends Packet{
 
     public void setyVelocity(int yVelocity) {
         this.yVelocity = yVelocity;
+    }
+
+    public String getShooter() {
+        return shooter;
+    }
+
+    public void setShooter(String shooter) {
+        this.shooter = shooter;
     }
 }

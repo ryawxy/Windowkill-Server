@@ -10,6 +10,7 @@ public class SummonHandler implements MessageHandler{
 
         SummonMessage summonMessage = (SummonMessage) message;
 
+
         MyProject.getInstance().getDatabase().getClientHandlerMap().get(summonMessage.getTarget()).sendMessage(summonMessage);
     }
 }

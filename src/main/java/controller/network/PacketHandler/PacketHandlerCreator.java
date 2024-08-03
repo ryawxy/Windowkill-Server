@@ -1,7 +1,6 @@
 package controller.network.PacketHandler;
 
-import controller.network.PacketHandler.PacketHandler;
-import model.networkCommunication.Packet.PacketType;
+import model.enums.PacketType;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -21,6 +20,7 @@ public class PacketHandlerCreator {
             Map<PacketType,PacketHandler> packetHandlerMap = new ConcurrentHashMap<>();
             packetHandlerMap.put(PacketType.EPSILON,new EpsilonHandler());
             packetHandlerMap.put(PacketType.SHOTGUN,new ShotGunHandler());
+            packetHandlerMap.put(PacketType.ENEMY,new EnemyHandler());
             return packetHandlerMap;
         }
     }

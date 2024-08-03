@@ -1,20 +1,19 @@
-package model.networkCommunication.Packet;
-
-import model.enums.PacketType;
+package model.Game;
 
 import java.util.UUID;
 
-public class ShotGunPacket extends Packet{
-
+public class ShotGun {
     private int x;
     private int y;
-    private UUID id;
     private int xVelocity;
     private int yVelocity;
+    private UUID id;
     private String shooter;
 
-    public ShotGunPacket() {
-        setPacketType(PacketType.SHOTGUN);
+    public ShotGun() {
+        setShooter("server");
+        setId(UUID.randomUUID());
+
     }
 
     public int getX() {
@@ -33,14 +32,6 @@ public class ShotGunPacket extends Packet{
         this.y = y;
     }
 
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
     public int getxVelocity() {
         return xVelocity;
     }
@@ -55,6 +46,14 @@ public class ShotGunPacket extends Packet{
 
     public void setyVelocity(int yVelocity) {
         this.yVelocity = yVelocity;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public String getShooter() {

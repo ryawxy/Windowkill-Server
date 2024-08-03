@@ -55,7 +55,7 @@ public TCPClientHandler(Socket clientSocket) throws IOException {
             try {
 
                 Message receivedMessage = JsonUtils.deserializeFromJson(receivedJson, Message.class);
-                System.out.println(receivedJson);
+           //     System.out.println(receivedJson);
                 processMessage(receivedMessage);
 
             } catch (JsonProcessingException e) {
@@ -77,7 +77,7 @@ public TCPClientHandler(Socket clientSocket) throws IOException {
     public void sendMessage(Message message){
         try {
             String jsonString = JsonUtils.serializeToJson(message);
-            System.out.println(jsonString);
+          //  System.out.println(jsonString);
             sender.println(jsonString);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);

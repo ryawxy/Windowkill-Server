@@ -4,14 +4,14 @@ package model.networkCommunication.Packet;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import model.networkCommunication.Packet.EpsilonPacket;
-import model.networkCommunication.Packet.PacketType;
+import model.enums.PacketType;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "messageType",visible = true)
 @JsonSubTypes({
         @JsonSubTypes.Type(value = EpsilonPacket.class, name = "EPSILON"),
         @JsonSubTypes.Type(value = ShotGunPacket.class, name = "SHOTGUN"),
+        @JsonSubTypes.Type(value = EnemyPacket.class, name = "ENEMY"),
 })
 public class Packet {
     private PacketType packetType;

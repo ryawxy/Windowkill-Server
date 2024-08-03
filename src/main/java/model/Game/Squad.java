@@ -13,6 +13,8 @@ public class Squad {
     private HashMap<String,String> membersStatus = new HashMap<>();
     private int vault;
     private HashMap<VaultItem,Integer> vaultItems = new HashMap<>();
+    private int monomachiaWin;
+    private int totalXP;
 
     public Squad(String squadName,String admin) {
         this.squadName = squadName;
@@ -78,5 +80,21 @@ public class Squad {
 
     public void setVaultItems(HashMap<VaultItem, Integer> vaultItems) {
         this.vaultItems = vaultItems;
+    }
+
+    public int getMonomachiaWin() {
+        return monomachiaWin;
+    }
+
+    public void setMonomachiaWin(int monomachiaWin) {
+        this.monomachiaWin = monomachiaWin;
+    }
+
+    public int getTotalXP() {
+        return totalXP;
+    }
+
+    public void setTotalXP(int totalXP) {
+        this.totalXP = totalXP;
     }
 }

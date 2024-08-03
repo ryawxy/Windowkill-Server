@@ -1,6 +1,7 @@
 package model.networkCommunication.Packet;
 
 
+import model.enums.PacketType;
 
 public class EpsilonPacket extends Packet {
 

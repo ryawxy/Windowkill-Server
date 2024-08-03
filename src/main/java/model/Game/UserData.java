@@ -8,7 +8,7 @@ import model.enums.VaultItem;
 import java.util.HashMap;
 
 
-public class UserData {
+public class UserData  {
     private String username;
     private int XP = 10000;
     private boolean isUserOnline;
@@ -20,6 +20,7 @@ public class UserData {
     private int y;
     private model.enums.Color color;
     private HashMap<VaultItem,Integer> activatedItems = new HashMap<>();
+    private int HP = 100;
 
     public UserData() {
         activatedItems.put(VaultItem.CallOfPalioxis,0);
@@ -113,5 +114,13 @@ public class UserData {
 
     public void setActivatedItems(HashMap<VaultItem, Integer> activatedItems) {
         this.activatedItems = activatedItems;
+    }
+
+    public int getHP() {
+        return HP;
+    }
+
+    public void setHP(int HP) {
+        this.HP = HP;
     }
 }

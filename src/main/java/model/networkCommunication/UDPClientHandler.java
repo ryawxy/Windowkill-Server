@@ -45,7 +45,7 @@ public class UDPClientHandler extends Thread {
     public void broadcastMessage(Packet packet,int senderPort) throws JsonProcessingException {
 
         String message = JsonUtils.serializeToJson(packet);
-
+        System.out.println(message);
             byte[] sendData = message.getBytes();
                for(TCPClientHandler TCPClientHandler : MyProject.getInstance().getDatabase().getClientHandlerMap().values()){
 

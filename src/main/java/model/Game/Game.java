@@ -1,5 +1,7 @@
 package model.Game;
 
+import model.enums.GameMode;
+
 import java.util.ArrayList;
 
 public class Game {
@@ -7,6 +9,7 @@ public class Game {
     private String battleMode;
     private GameLoop gameLoop;
     private ArrayList<String> players = new ArrayList<>();
+
 
     public Game(String battleMode) {
         this.battleMode = battleMode;

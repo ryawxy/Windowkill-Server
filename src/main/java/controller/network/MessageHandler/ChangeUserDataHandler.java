@@ -18,6 +18,9 @@ public class ChangeUserDataHandler implements MessageHandler {
                 if(dataMessage.getData().equals("XP")) onlineUser.getUserData()
                         .setXP(Integer.parseInt(dataMessage.getChangedData()));
 
+            if(dataMessage.getData().equals("HP")) onlineUser.getUserData()
+                    .setHP(Integer.parseInt(dataMessage.getChangedData()));
+
         }
         for(String  username : MyProject.getInstance().getDatabase().getClientHandlerMap().keySet()){
             if(!username.equals(sender)) {

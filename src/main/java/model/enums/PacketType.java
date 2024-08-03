@@ -1,6 +1,7 @@
-package model.networkCommunication.Packet;
+package model.enums;
 
 public enum PacketType {
     EPSILON,
     SHOTGUN,
+    ENEMY,
 }

@@ -2,10 +2,9 @@ package model.Game;
 
 public class OnlineUser {
 
-    private UserData userData;
+    private UserData userData = new UserData();
 
     public OnlineUser() {
-        userData = new UserData();
     }
 
     public UserData getUserData() {

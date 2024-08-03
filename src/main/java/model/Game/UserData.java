@@ -21,6 +21,11 @@ public class UserData {
     private model.enums.Color color;
     private HashMap<VaultItem,Integer> activatedItems = new HashMap<>();
 
+    public UserData() {
+        activatedItems.put(VaultItem.CallOfPalioxis,0);
+        activatedItems.put(VaultItem.CallOfAdonis,0);
+        activatedItems.put(VaultItem.CallOfGefjon,0);
+    }
 
     public String getUsername() {
         return username;

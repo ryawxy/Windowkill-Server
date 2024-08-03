@@ -37,6 +37,8 @@ public class MessageHandlerCreator {
         messageHandlerMap.put(MessageType.SUMMON,new SummonHandler());
         messageHandlerMap.put(MessageType.ANSWER_TO_SUMMON,new AnswerToSummonHandler());
         messageHandlerMap.put(MessageType.PAUSE_GAME,new PauseGameHandler());
+        messageHandlerMap.put(MessageType.BUY_ITEM,new BuyItemHandler());
+        messageHandlerMap.put(MessageType.END_GAME,new EndGameHandler());
         return messageHandlerMap;
     }
 }

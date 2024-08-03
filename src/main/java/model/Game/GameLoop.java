@@ -106,4 +106,8 @@ public class GameLoop extends Thread{
     public void setGameStarted(boolean gameStarted) {
         isGameStarted = gameStarted;
     }
+
+    private void endMonomachiaBattle(int time){
+
+    }
 }

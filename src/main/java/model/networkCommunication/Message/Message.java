@@ -29,6 +29,8 @@ import model.enums.MessageType;
 @JsonSubTypes.Type(value = SummonMessage.class, name = "SUMMON"),
 @JsonSubTypes.Type(value = AnswerToSummonMessage.class, name = "ANSWER_TO_SUMMON"),
 @JsonSubTypes.Type(value = PauseGameMessage.class, name = "PAUSE_GAME"),
+@JsonSubTypes.Type(value = BuyItemMessage.class, name = "BUY_ITEM"),
+@JsonSubTypes.Type(value = EndGameMessage.class, name = "END_GAME"),
 })
 
 public class Message {

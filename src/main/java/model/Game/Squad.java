@@ -18,7 +18,9 @@ public class Squad {
         this.squadName = squadName;
         this.admin = admin;
 
-
+        vaultItems.put(VaultItem.CallOfPalioxis,0);
+        vaultItems.put(VaultItem.CallOfAdonis,0);
+        vaultItems.put(VaultItem.CallOfGefjon,0);
 
     }
 

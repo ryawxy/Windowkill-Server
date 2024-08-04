@@ -2,6 +2,7 @@ package model.Game;
 
 import controller.Constants;
 import model.enums.VaultItem;
+import model.networkCommunication.Message.ChangeUserDataMessage;
 import model.networkCommunication.Message.StartBattleMessage;
 import myProject.MyProject;
 
@@ -119,8 +120,45 @@ public class BattleHandler {
                 else MyProject.getInstance().getDatabase().getAllUsers().get(member).getUserData().setXP(XP - Constants.XP_PER_LOSER());
             }
         }
+       sendChangedData();
     }
-    public void sendChangedData(){
+    public static void sendChangedData(){
+        for(Squad squad : winners) {
+            for (String member : squad.getMembers()) {
+                ChangeUserDataMessage changeUserDataMessage = new ChangeUserDataMessage();
+                changeUserDataMessage.setData("XP");
+                changeUserDataMessage.setChangedData(String.valueOf(MyProject.getInstance().getDatabase().getAllUsers().get(member).getUserData().getXP()));
+                changeUserDataMessage.setUsername(member);
+                for(Pair<Squad, Squad> pair : pairs){
+                   if(pair.first.equals(squad) || pair.second.equals(squad)){
+                       for(String username : pair.first.getMembers()){
+                           MyProject.getInstance().getDatabase().getClientHandlerMap().get(username).sendMessage(changeUserDataMessage);
+                       }
+                       for(String username : pair.second.getMembers()){
+                           MyProject.getInstance().getDatabase().getClientHandlerMap().get(username).sendMessage(changeUserDataMessage);
+                       }
+                   }
+                }
+            }
+        }
+        for(Squad squad : losers) {
+            for (String member : squad.getMembers()) {
+                ChangeUserDataMessage changeUserDataMessage = new ChangeUserDataMessage();
+                changeUserDataMessage.setData("XP");
+                changeUserDataMessage.setChangedData(String.valueOf(MyProject.getInstance().getDatabase().getAllUsers().get(member).getUserData().getXP()));
+                changeUserDataMessage.setUsername(member);
+                for(Pair<Squad, Squad> pair : pairs){
+                    if(pair.first.equals(squad) || pair.second.equals(squad)){
+                        for(String username : pair.first.getMembers()){
+                            MyProject.getInstance().getDatabase().getClientHandlerMap().get(username).sendMessage(changeUserDataMessage);
+                        }
+                        for(String username : pair.second.getMembers()){
+                            MyProject.getInstance().getDatabase().getClientHandlerMap().get(username).sendMessage(changeUserDataMessage);
+                        }
+                    }
+                }
+            }
+        }
 
     }
 

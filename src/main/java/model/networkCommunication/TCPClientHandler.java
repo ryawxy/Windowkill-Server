@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import controller.JsonUtils;
 import controller.network.MessageHandler.MessageHandler;
-import model.Game.BattleCreator;
+import model.Game.BattleHandler;
 import model.networkCommunication.Message.Message;
 import myProject.MyProject;
 
@@ -91,7 +91,10 @@ public TCPClientHandler(Socket clientSocket) throws IOException {
             String input = scanner.nextLine();
             if (input.equalsIgnoreCase("startBattle")) {
                 System.out.println(11111);
-                BattleCreator.initiateBattle();
+                BattleHandler.initiateBattle();
+            }
+            if(input.equalsIgnoreCase("terminateBattle")){
+                BattleHandler.terminateBattle();
             }
         }
     }

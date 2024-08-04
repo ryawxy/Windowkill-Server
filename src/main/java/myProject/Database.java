@@ -22,6 +22,7 @@ public class Database {
     private Map<String, Squad> squadMap;
     private ArrayList<Game> games = new ArrayList<>();
     private static ArrayList<Color> colors = new ArrayList<>();
+    private ArrayList<Squad> squadsInBattle = new ArrayList<>();
 
     public Database(){
         clientHandlerMap = new ConcurrentHashMap<>();
@@ -90,5 +91,13 @@ public class Database {
 
     public static void setColors(ArrayList<Color> colors) {
         Database.colors = colors;
+    }
+
+    public ArrayList<Squad> getSquadsInBattle() {
+        return squadsInBattle;
+    }
+
+    public void setSquadsInBattle(ArrayList<Squad> squadsInBattle) {
+        this.squadsInBattle = squadsInBattle;
     }
 }

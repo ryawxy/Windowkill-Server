@@ -2,6 +2,7 @@ package model.networkCommunication.Packet;
 
 import model.enums.PacketType;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class ShotGunPacket extends Packet{
@@ -12,6 +13,8 @@ public class ShotGunPacket extends Packet{
     private int xVelocity;
     private int yVelocity;
     private String shooter;
+    private ArrayList<String> users = new ArrayList<>();
+
 
     public ShotGunPacket() {
         setPacketType(PacketType.SHOTGUN);
@@ -63,5 +66,13 @@ public class ShotGunPacket extends Packet{
 
     public void setShooter(String shooter) {
         this.shooter = shooter;
+    }
+
+    public ArrayList<String> getUsers() {
+        return users;
+    }
+
+    public void setUsers(ArrayList<String> users) {
+        this.users = users;
     }
 }

@@ -2,11 +2,15 @@ package model.networkCommunication;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import controller.JsonUtils;
+import controller.network.MessageHandler.MessageHandler;
+import controller.network.PacketHandler.PacketHandler;
+import model.networkCommunication.Message.Message;
 import model.networkCommunication.Packet.Packet;
 import myProject.MyProject;
 
 import java.io.IOException;
 import java.net.*;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -34,36 +38,40 @@ public class UDPClientHandler extends Thread {
                 udpSocket.receive(receivedPacket);
                 String message = new String(receivedPacket.getData(),0, receivedPacket.getLength());
                 Packet receivePacket = JsonUtils.deserializeFromJson(message, Packet.class);
-
-                broadcastMessage(receivePacket,receivePacket.getSenderPort());
+                System.out.println(message);
+                processPacket(receivePacket);
+             //   broadcastMessage(receivePacket,receivePacket.getSenderPort(),MyProject.getInstance().getDatabase().getClientHandlerMap());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
 
         }
     }
-    public void broadcastMessage(Packet packet,int senderPort) throws JsonProcessingException {
+    private void processPacket(Packet packet){
+
+        PacketHandler handler = MyProject.getInstance().getDatabase().getPacketHandlerMap().get(packet.getPacketType());
+        handler.handlePacket(packet);
+    }
+    public void broadcastMessage(Packet packet, int senderPort,int UDPPort) throws JsonProcessingException {
 
         String message = JsonUtils.serializeToJson(packet);
-        System.out.println(message);
-            byte[] sendData = message.getBytes();
-               for(TCPClientHandler TCPClientHandler : MyProject.getInstance().getDatabase().getClientHandlerMap().values()){
 
-                 if(TCPClientHandler.getUdpPort() != senderPort){
+            byte[] sendData = message.getBytes();
+         //      for(TCPClientHandler TCPClientHandler : M.values()){
+
+        //         if(TCPClientHandler.getUdpPort() != senderPort){
 
 
                    try {
-                    DatagramPacket  sendPacket = new DatagramPacket(sendData, sendData.length, InetAddress.getByName("localhost"), TCPClientHandler.getUdpPort());
+                    DatagramPacket  sendPacket = new DatagramPacket(sendData, sendData.length, InetAddress.getByName("localhost"), UDPPort);
                        udpSocket.send(sendPacket);
 
                    } catch (IOException e) {
                        throw new RuntimeException(e);
                    }
-
-
                }
-                }
-        }
+             //   }
+       // }
 
 
     public static UDPClientHandler getInstance() throws SocketException {

@@ -3,6 +3,7 @@ package controller.network.MessageHandler;
 import model.Game.Game;
 import model.Game.GameLoop;
 import model.Game.Squad;
+import model.enums.GameMode;
 import model.networkCommunication.Message.AnswerToBattleRequestMessage;
 import model.networkCommunication.Message.ChangeStateMessage;
 import model.networkCommunication.Message.Message;
@@ -16,6 +17,16 @@ public class AnswerToBattleRequestHandler implements MessageHandler {
 
         MyProject.getInstance().getDatabase().getClientHandlerMap().get(answer.getTarget()).sendMessage(answer);
         if(answer.isAccepted()){
+            if(answer.getBattleMode().equals(String.valueOf(GameMode.COLOSSEUM))){
+                MyProject.getInstance().getDatabase().getAllUsers().get(answer.getTarget()).getUserData().setPlayedColosseum(true);
+                MyProject.getInstance().getDatabase().getAllUsers().get(answer.getSender()).getUserData().setPlayedColosseum(true);
+            }
+            else{
+                MyProject.getInstance().getDatabase().getAllUsers().get(answer.getTarget()).getUserData().setPlayedMonomachia(true);
+                MyProject.getInstance().getDatabase().getAllUsers().get(answer.getSender()).getUserData().setPlayedMonomachia(true);
+
+            }
+
             sendChangeStateMessage(answer);
             Game game = new Game(answer.getBattleMode());
             game.setGameLoop(new GameLoop(game));

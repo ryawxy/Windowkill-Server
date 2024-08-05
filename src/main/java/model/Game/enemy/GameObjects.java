@@ -14,7 +14,11 @@ import java.util.UUID;
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type",visible = true)
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Trigorath.class,name = "trigorath"),
-
+        @JsonSubTypes.Type(value = Squarantine.class,name = "squarantine"),
+        @JsonSubTypes.Type(value = Necropick.class,name = "necropick"),
+        @JsonSubTypes.Type(value = Omenoct.class,name = "omenoct"),
+        @JsonSubTypes.Type(value = Barricados.class,name = "barricados"),
+        @JsonSubTypes.Type(value = Smiley.class,name = "smiley"),
 })
 public class GameObjects {
 
@@ -52,6 +56,7 @@ public class GameObjects {
     private int frameWidth;
     private int frameHeight;
     private String frameTitle;
+    private int MAX_DIMENSION;
 
     public GameObjects() {
     }
@@ -300,5 +305,13 @@ public class GameObjects {
 
     public void setFrameTitle(String frameTitle) {
         this.frameTitle = frameTitle;
+    }
+
+    public int getMAX_DIMENSION() {
+        return MAX_DIMENSION;
+    }
+
+    public void setMAX_DIMENSION(int MAX_DIMENSION) {
+        this.MAX_DIMENSION = MAX_DIMENSION;
     }
 }

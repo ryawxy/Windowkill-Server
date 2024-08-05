@@ -4,4 +4,5 @@ public enum PacketType {
     EPSILON,
     SHOTGUN,
     ENEMY,
+    KILLED_ENEMY,
 }

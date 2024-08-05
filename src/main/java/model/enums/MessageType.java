@@ -24,4 +24,5 @@ public enum MessageType {
     PAUSE_GAME,
     BUY_ITEM,
     END_GAME,
+    END_BATTLE,
 }

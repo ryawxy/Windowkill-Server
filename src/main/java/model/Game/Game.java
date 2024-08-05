@@ -9,6 +9,7 @@ public class Game {
     private String battleMode;
     private GameLoop gameLoop;
     private ArrayList<String> players = new ArrayList<>();
+    private boolean isPaused;
 
 
     public Game(String battleMode) {
@@ -38,5 +39,13 @@ public class Game {
 
     public void setPlayers(ArrayList<String> players) {
         this.players = players;
+    }
+
+    public boolean isPaused() {
+        return isPaused;
+    }
+
+    public void setPaused(boolean paused) {
+        isPaused = paused;
     }
 }

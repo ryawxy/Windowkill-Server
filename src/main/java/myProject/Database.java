@@ -2,10 +2,13 @@ package myProject;
 
 import controller.network.MessageHandler.MessageHandler;
 import controller.network.MessageHandler.MessageHandlerCreator;
+import controller.network.PacketHandler.PacketHandler;
+import controller.network.PacketHandler.PacketHandlerCreator;
 import model.Game.Game;
 import model.Game.OnlineUser;
 import model.Game.Squad;
 import model.enums.Color;
+import model.enums.PacketType;
 import model.networkCommunication.TCPClientHandler;
 import model.networkCommunication.Message.Message;
 import model.enums.MessageType;
@@ -19,16 +22,21 @@ public class Database {
     private Map<String, OnlineUser> allUsers;
     private Map<String, ArrayList<Message>> messageQueMap;
     private Map<MessageType, MessageHandler> messageHandlerMap;
+    private Map<PacketType, PacketHandler> packetHandlerMap;
     private Map<String, Squad> squadMap;
     private ArrayList<Game> games = new ArrayList<>();
     private static ArrayList<Color> colors = new ArrayList<>();
     private ArrayList<Squad> squadsInBattle = new ArrayList<>();
+    private ArrayList<ClientData> clientsData = new ArrayList<>();
 
     public Database(){
         clientHandlerMap = new ConcurrentHashMap<>();
+        packetHandlerMap = new ConcurrentHashMap<>();
         allUsers = new ConcurrentHashMap<>();
         messageQueMap = new ConcurrentHashMap<>();
         messageHandlerMap = MessageHandlerCreator.getInstance().createMessageHandlerMap();
+        packetHandlerMap = PacketHandlerCreator.getInstance().createMessageHandlerMap();
+
         squadMap = new ConcurrentHashMap<>();
 
         colors.add(Color.Cyan);
@@ -99,5 +107,21 @@ public class Database {
 
     public void setSquadsInBattle(ArrayList<Squad> squadsInBattle) {
         this.squadsInBattle = squadsInBattle;
+    }
+
+    public Map<PacketType, PacketHandler> getPacketHandlerMap() {
+        return packetHandlerMap;
+    }
+
+    public void setPacketHandlerMap(Map<PacketType, PacketHandler> packetHandlerMap) {
+        this.packetHandlerMap = packetHandlerMap;
+    }
+
+    public ArrayList<ClientData> getClientsData() {
+        return clientsData;
+    }
+
+    public void setClientsData(ArrayList<ClientData> clientsData) {
+        this.clientsData = clientsData;
     }
 }

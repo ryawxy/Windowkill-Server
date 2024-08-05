@@ -9,6 +9,7 @@ public class BattleRequestMessage extends Message{
     private String target;
     private String battle;
     private boolean isAccepted;
+    private boolean hasPlayed;
     public BattleRequestMessage() {
         setMessageType(MessageType.BATTLE_REQUEST);
     }
@@ -47,5 +48,13 @@ public class BattleRequestMessage extends Message{
 
     public void setAccepted(boolean accepted) {
         isAccepted = accepted;
+    }
+
+    public boolean isHasPlayed() {
+        return hasPlayed;
+    }
+
+    public void setHasPlayed(boolean hasPlayed) {
+        this.hasPlayed = hasPlayed;
     }
 }

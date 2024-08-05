@@ -3,6 +3,7 @@ package model.Game;
 import controller.Constants;
 import model.enums.VaultItem;
 import model.networkCommunication.Message.ChangeUserDataMessage;
+import model.networkCommunication.Message.EndBattleMessage;
 import model.networkCommunication.Message.StartBattleMessage;
 import myProject.MyProject;
 
@@ -27,6 +28,7 @@ public class BattleHandler {
             pairs.add(new Pair<>(squads.get(i),squads.get(i+1)));
         }
        for(Pair<Squad,Squad> pair : pairs) notifyMembers(pair.first(),pair.second());
+       MyProject.getInstance().setBattleStarted(true);
     }
     public static void notifyMembers(Squad squad1, Squad squad2){
 
@@ -69,6 +71,12 @@ public class BattleHandler {
         }
     }
     public static void terminateBattle(){
+
+        for(OnlineUser onlineUser : MyProject.getInstance().getDatabase().getAllUsers().values()){
+            onlineUser.getUserData().setPlayedMonomachia(false);
+            onlineUser.getUserData().setPlayedColosseum(false);
+        }
+        MyProject.getInstance().setBattleStarted(false);
         for(Pair<Squad,Squad> pair : pairs){
 
             if(pair.first().getTotalXP()>pair.second().getTotalXP()) winners.add(pair.first());
@@ -95,6 +103,23 @@ public class BattleHandler {
             else losers.add(pair.second());
         }
         assignBattleXP();
+        sendEndBattleMessage();
+    }
+    public static void sendEndBattleMessage(){
+       for(Squad squad : winners){
+           for(String member : squad.getMembers()){
+               EndBattleMessage endBattleMessage = new EndBattleMessage();
+               endBattleMessage.setWin(true);
+               MyProject.getInstance().getDatabase().getClientHandlerMap().get(member).sendMessage(endBattleMessage);
+           }
+       }
+        for(Squad squad : losers){
+            for(String member : squad.getMembers()){
+                EndBattleMessage endBattleMessage = new EndBattleMessage();
+                endBattleMessage.setWin(false);
+                MyProject.getInstance().getDatabase().getClientHandlerMap().get(member).sendMessage(endBattleMessage);
+            }
+        }
     }
     public static void assignBattleXP(){
         for(Squad winner : winners){
@@ -159,9 +184,12 @@ public class BattleHandler {
                 }
             }
         }
-
     }
 
+    public static List<Pair<Squad,Squad>> getPairs(){
+        return pairs;
+    }
     public record Pair<T, U>(T first, U second) {
     }
+
 }

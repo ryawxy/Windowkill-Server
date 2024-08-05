@@ -10,7 +10,10 @@ public class SummonHandler implements MessageHandler{
 
         SummonMessage summonMessage = (SummonMessage) message;
 
+        if(MyProject.getInstance().getDatabase().getAllUsers().get(summonMessage.getTarget()).getUserData().isPlayedMonomachia()){
+            summonMessage.setHasPlayed(true);
+            MyProject.getInstance().getDatabase().getClientHandlerMap().get(summonMessage.getSender()).sendMessage(summonMessage);
 
-        MyProject.getInstance().getDatabase().getClientHandlerMap().get(summonMessage.getTarget()).sendMessage(summonMessage);
+        }else MyProject.getInstance().getDatabase().getClientHandlerMap().get(summonMessage.getTarget()).sendMessage(summonMessage);
     }
 }

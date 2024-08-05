@@ -3,13 +3,15 @@ package model.networkCommunication.Packet;
 
 import model.enums.PacketType;
 
+import java.util.ArrayList;
+
 public class EpsilonPacket extends Packet {
 
     private int x;
     private int y;
     private int XP;
     private int HP;
-
+    private ArrayList<String> users = new ArrayList<>();
     public EpsilonPacket() {
         setPacketType(PacketType.EPSILON);
     }
@@ -44,5 +46,13 @@ public class EpsilonPacket extends Packet {
 
     public void setXP(int XP) {
         this.XP = XP;
+    }
+
+    public ArrayList<String> getUsers() {
+        return users;
+    }
+
+    public void setUsers(ArrayList<String> users) {
+        this.users = users;
     }
 }

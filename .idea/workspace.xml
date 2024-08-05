@@ -4,29 +4,51 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5daa1bfd-aaed-44da-abf0-a91f2603f16c" name="Changes" comment="buy items with squad vault">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/WaveController/WaveData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/WaveController/WaveManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/network/PacketHandler/EnemyHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Game/ShotGun.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Game/enemy/GameObjects.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Game/enemy/Trigorath.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/enums/EnemyType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/enums/GameMode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Packet/EnemyPacket.java" afterDir="false" />
+    <list default="true" id="5daa1bfd-aaed-44da-abf0-a91f2603f16c" name="Changes" comment="terminate battle method created">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/EndBattleHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/network/PacketHandler/KilledEnemyHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Game/enemy/Barricados.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Game/enemy/Necropick.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Game/enemy/Omenoct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Game/enemy/Squarantine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/EndBattleMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Packet/KilledEnemyPacket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myProject/ClientData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/ChangeUserDataHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/ChangeUserDataHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/WaveController/WaveData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/WaveController/WaveData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/WaveController/WaveManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/WaveController/WaveManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/AnswerToBattleRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/AnswerToBattleRequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/BattleRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/BattleRequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/DisconnectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/DisconnectionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/MessageHandlerCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/MessageHandlerCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/SignUpHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/SignUpHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/SummonHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/SummonHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/PacketHandler/EnemyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/PacketHandler/EnemyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/PacketHandler/EpsilonHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/PacketHandler/EpsilonHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/PacketHandler/PacketHandlerCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/PacketHandler/PacketHandlerCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/PacketHandler/ShotGunHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/PacketHandler/ShotGunHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Game/BattleHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Game/BattleHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Game/GameLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Game/GameLoop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Game/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Game/UserData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/EndGameMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/EndGameMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Game/enemy/GameObjects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Game/enemy/GameObjects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Game/enemy/Trigorath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Game/enemy/Trigorath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enums/MessageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enums/MessageType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/enums/PacketType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enums/PacketType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/BattleRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/BattleRequestMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/DisconnectionMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/DisconnectionMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/SignUPMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/SignUPMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/SummonMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/SummonMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Packet/EnemyPacket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Packet/EnemyPacket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Packet/EpsilonPacket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Packet/EpsilonPacket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Packet/Packet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Packet/Packet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Packet/PacketType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enums/PacketType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Packet/ShotGunPacket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Packet/ShotGunPacket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/TCPClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/TCPClientHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/UDPClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/UDPClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myProject/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myProject/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myProject/MyProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myProject/MyProject.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +82,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/Backup/WindowKill"
+    "last_opened_file_path": "D:/Compress/WindowKill"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -69,11 +91,11 @@
       <recent name="C:\Users\Namazi\Favorites\WindowKillServer\src\main\java\model\networkCommunication" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="model.Game.enemy" />
+      <recent name="model.networkCommunication.Packet" />
       <recent name="model.Game.entity" />
       <recent name="model.enums" />
       <recent name="model.networkCommunication.Message" />
-      <recent name="controller.network.MessageHandler" />
-      <recent name="model.networkCommunication.Packet" />
     </key>
   </component>
   <component name="RunManager">
@@ -142,7 +164,31 @@
       <option name="project" value="LOCAL" />
       <updated>1722670114625</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="wave manager created">
+      <option name="closed" value="true" />
+      <created>1722713752792</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1722713752792</updated>
+    </task>
+    <task id="LOCAL-00008" summary="constants class created">
+      <option name="closed" value="true" />
+      <created>1722759165218</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1722759165218</updated>
+    </task>
+    <task id="LOCAL-00009" summary="terminate battle method created">
+      <option name="closed" value="true" />
+      <created>1722759749852</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1722759749852</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -163,6 +209,9 @@
     <MESSAGE value="summon message created" />
     <MESSAGE value="summon to a battle action created" />
     <MESSAGE value="buy items with squad vault" />
-    <option name="LAST_COMMIT_MESSAGE" value="buy items with squad vault" />
+    <MESSAGE value="wave manager created" />
+    <MESSAGE value="constants class created" />
+    <MESSAGE value="terminate battle method created" />
+    <option name="LAST_COMMIT_MESSAGE" value="terminate battle method created" />
   </component>
 </project>

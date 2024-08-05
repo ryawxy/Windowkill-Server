@@ -1,6 +1,5 @@
 package model.networkCommunication.Packet;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -12,6 +11,7 @@ import model.enums.PacketType;
         @JsonSubTypes.Type(value = EpsilonPacket.class, name = "EPSILON"),
         @JsonSubTypes.Type(value = ShotGunPacket.class, name = "SHOTGUN"),
         @JsonSubTypes.Type(value = EnemyPacket.class, name = "ENEMY"),
+        @JsonSubTypes.Type(value = KilledEnemyPacket.class, name = "KILLED_ENEMY"),
 })
 public class Packet {
     private PacketType packetType;

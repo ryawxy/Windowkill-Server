@@ -21,6 +21,7 @@ public class PacketHandlerCreator {
             packetHandlerMap.put(PacketType.EPSILON,new EpsilonHandler());
             packetHandlerMap.put(PacketType.SHOTGUN,new ShotGunHandler());
             packetHandlerMap.put(PacketType.ENEMY,new EnemyHandler());
+            packetHandlerMap.put(PacketType.KILLED_ENEMY,new KilledEnemyHandler());
             return packetHandlerMap;
         }
     }

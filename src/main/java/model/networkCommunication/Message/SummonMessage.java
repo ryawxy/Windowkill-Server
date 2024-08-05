@@ -11,6 +11,7 @@ public class SummonMessage extends Message{
     private String target;
     public boolean isAccepted;
     private ArrayList<UserData> users = new ArrayList<>();
+    private boolean hasPlayed;
 
     public SummonMessage() {
         setMessageType(MessageType.SUMMON);
@@ -50,5 +51,13 @@ public class SummonMessage extends Message{
 
     public void setUsers(ArrayList<UserData> users) {
         this.users = users;
+    }
+
+    public boolean isHasPlayed() {
+        return hasPlayed;
+    }
+
+    public void setHasPlayed(boolean hasPlayed) {
+        this.hasPlayed = hasPlayed;
     }
 }

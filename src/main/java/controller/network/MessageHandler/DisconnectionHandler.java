@@ -19,6 +19,9 @@ public class DisconnectionHandler implements MessageHandler{
                 }
 
             }
+            for(String enemy : disconnectionMessage.getEnemies()){
+                MyProject.getInstance().getDatabase().getClientHandlerMap().get(enemy).sendMessage(disconnectionMessage);
+            }
         }
     }
 }

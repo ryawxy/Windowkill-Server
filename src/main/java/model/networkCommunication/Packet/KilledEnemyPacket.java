@@ -4,22 +4,25 @@ import model.Game.enemy.GameObjects;
 import model.enums.PacketType;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
-public class EnemyPacket extends Packet {
-    private List<GameObjects> enemies = new ArrayList<>();
+public class KilledEnemyPacket extends Packet{
+    private GameObjects enemy;
     private ArrayList<String> users = new ArrayList<>();
-    public EnemyPacket() {
-        setPacketType(PacketType.ENEMY);
+
+    public KilledEnemyPacket() {
+
+            setPacketType(PacketType.KILLED_ENEMY);
+
+        }
+
+
+    public GameObjects getEnemy() {
+        return enemy;
     }
 
-    public List<GameObjects> getEnemies() {
-        return enemies;
-    }
-
-    public void setEnemies(List<GameObjects> enemies) {
-        this.enemies = enemies;
+    public void setEnemy(GameObjects enemy) {
+        this.enemy = enemy;
     }
 
     public ArrayList<String> getUsers() {

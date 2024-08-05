@@ -19,7 +19,9 @@ public class Trigorath extends GameObjects {
         super(x, y);
         setMinimumWave(1);
         setSpawnNumber(2);
+        setHP(15);
         setEnemyType(EnemyType.Trigorath);
+        setMAX_DIMENSION(300);
     }
 
     public int getAngle() {

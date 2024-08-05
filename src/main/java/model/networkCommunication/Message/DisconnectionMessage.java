@@ -2,10 +2,13 @@ package model.networkCommunication.Message;
 
 import model.enums.MessageType;
 
+import java.util.ArrayList;
+
 public class DisconnectionMessage extends Message{
     private String username;
 
     private String squad;
+    private ArrayList<String> enemies = new ArrayList<>();
 
     public DisconnectionMessage() {
         setMessageType(MessageType.DISCONNECTION);
@@ -25,5 +28,13 @@ public class DisconnectionMessage extends Message{
 
     public void setSquad(String squad) {
         this.squad = squad;
+    }
+
+    public ArrayList<String> getEnemies() {
+        return enemies;
+    }
+
+    public void setEnemies(ArrayList<String> enemies) {
+        this.enemies = enemies;
     }
 }

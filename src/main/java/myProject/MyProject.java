@@ -6,6 +6,7 @@ public class MyProject {
 
     private Database database;
     private static MyProject instance;
+    private boolean battleStarted;
 
     public MyProject(){
      database = new Database();
@@ -23,5 +24,13 @@ public class MyProject {
 
     public void setDatabase(Database database) {
         this.database = database;
+    }
+
+    public boolean isBattleStarted() {
+        return battleStarted;
+    }
+
+    public void setBattleStarted(boolean battleStarted) {
+        this.battleStarted = battleStarted;
     }
 }

@@ -49,6 +49,7 @@ public TCPClientHandler(Socket clientSocket) throws IOException {
 
             String receivedJson = receiver.nextLine();
 
+            System.out.println(receivedJson);
             if (receivedJson == null) {
                     break;
                 }

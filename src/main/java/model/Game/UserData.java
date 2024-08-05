@@ -21,6 +21,8 @@ public class UserData  {
     private model.enums.Color color;
     private HashMap<VaultItem,Integer> activatedItems = new HashMap<>();
     private int HP = 100;
+    private boolean playedMonomachia;
+    private boolean playedColosseum;
 
     public UserData() {
         activatedItems.put(VaultItem.CallOfPalioxis,0);
@@ -122,5 +124,21 @@ public class UserData  {
 
     public void setHP(int HP) {
         this.HP = HP;
+    }
+
+    public boolean isPlayedMonomachia() {
+        return playedMonomachia;
+    }
+
+    public void setPlayedMonomachia(boolean playedMonomachia) {
+        this.playedMonomachia = playedMonomachia;
+    }
+
+    public boolean isPlayedColosseum() {
+        return playedColosseum;
+    }
+
+    public void setPlayedColosseum(boolean playedColosseum) {
+        this.playedColosseum = playedColosseum;
     }
 }

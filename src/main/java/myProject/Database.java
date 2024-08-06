@@ -7,6 +7,7 @@ import controller.network.PacketHandler.PacketHandlerCreator;
 import model.Game.Game;
 import model.Game.OnlineUser;
 import model.Game.Squad;
+import model.LeaderboardData;
 import model.enums.Color;
 import model.enums.PacketType;
 import model.networkCommunication.TCPClientHandler;
@@ -28,6 +29,7 @@ public class Database {
     private static ArrayList<Color> colors = new ArrayList<>();
     private ArrayList<Squad> squadsInBattle = new ArrayList<>();
     private ArrayList<ClientData> clientsData = new ArrayList<>();
+    private ArrayList<LeaderboardData> GameResults = new ArrayList<>();
 
     public Database(){
         clientHandlerMap = new ConcurrentHashMap<>();
@@ -123,5 +125,13 @@ public class Database {
 
     public void setClientsData(ArrayList<ClientData> clientsData) {
         this.clientsData = clientsData;
+    }
+
+    public ArrayList<LeaderboardData> getGameResults() {
+        return GameResults;
+    }
+
+    public void setGameResults(ArrayList<LeaderboardData> gameResults) {
+        GameResults = gameResults;
     }
 }

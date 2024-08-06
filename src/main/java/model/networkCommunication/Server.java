@@ -1,6 +1,8 @@
 package model.networkCommunication;
 
+import controller.commandLine.GameCLI;
 import myProject.MyProject;
+import picocli.CommandLine;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -10,6 +12,7 @@ public class Server {
     private static Server instance;
     public final int PORT = 12345;
     private Server(){
+
 
     }
 

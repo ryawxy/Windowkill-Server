@@ -25,4 +25,6 @@ public enum MessageType {
     BUY_ITEM,
     END_GAME,
     END_BATTLE,
+    PREVIOUS_DATA,
+    SHOW_RECORDS,
 }

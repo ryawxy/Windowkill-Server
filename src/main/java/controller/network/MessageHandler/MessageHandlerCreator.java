@@ -40,6 +40,8 @@ public class MessageHandlerCreator {
         messageHandlerMap.put(MessageType.BUY_ITEM,new BuyItemHandler());
         messageHandlerMap.put(MessageType.END_GAME,new EndGameHandler());
         messageHandlerMap.put(MessageType.END_BATTLE,new EndBattleHandler());
+        messageHandlerMap.put(MessageType.PREVIOUS_DATA,new PreviousDataHandler());
+        messageHandlerMap.put(MessageType.SHOW_RECORDS,new ShowRecordsHandler());
         return messageHandlerMap;
     }
 }

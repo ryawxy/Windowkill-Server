@@ -17,6 +17,7 @@ public class BattleHandler {
 
     }
     public static void initiateBattle(){
+        System.out.println("**************");
         pairs.clear();
         winners.clear();
         losers.clear();

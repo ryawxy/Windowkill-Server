@@ -61,10 +61,13 @@ public class SignUpHandler implements MessageHandler{
             signUPMessage.setBattleStarted(true);
 
             MyProject.getInstance().getDatabase().getAllUsers().get(((SignUPMessage) message).getUsername()).getUserData().setStatus(UserStatus.Online);
-            for(String username : MyProject.getInstance().getDatabase().getSquadMap().get(MyProject.getInstance().getDatabase().
-                    getAllUsers().get(((SignUPMessage) message).getUsername()).getUserData().getSquad()).getMembers()){
-                signUPMessage.getMembersStatus().put(username,String.valueOf(MyProject.getInstance().getDatabase().getAllUsers().get(username).getUserData().getStatus()));
-                signUPMessage.getMembersXP().put(username,MyProject.getInstance().getDatabase().getAllUsers().get(username).getUserData().getXP());
+            if(MyProject.getInstance().getDatabase().getSquadMap().get(MyProject.getInstance().getDatabase().
+                    getAllUsers().get(((SignUPMessage) message).getUsername()).getUserData().getSquad())!=null) {
+                for (String username : MyProject.getInstance().getDatabase().getSquadMap().get(MyProject.getInstance().getDatabase().
+                        getAllUsers().get(((SignUPMessage) message).getUsername()).getUserData().getSquad()).getMembers()) {
+                    signUPMessage.getMembersStatus().put(username, String.valueOf(MyProject.getInstance().getDatabase().getAllUsers().get(username).getUserData().getStatus()));
+                    signUPMessage.getMembersXP().put(username, MyProject.getInstance().getDatabase().getAllUsers().get(username).getUserData().getXP());
+                }
             }
             for(BattleHandler.Pair<Squad,Squad> pair : BattleHandler.getPairs()){
                 if(pair.first().getSquadName().equals(MyProject.getInstance().getDatabase().getAllUsers().get(((SignUPMessage) message).getUsername()).getUserData().getSquad())){

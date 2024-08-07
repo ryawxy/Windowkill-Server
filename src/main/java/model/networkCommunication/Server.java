@@ -1,6 +1,6 @@
 package model.networkCommunication;
 
-import controller.commandLine.GameCLI;
+
 import myProject.MyProject;
 import picocli.CommandLine;
 
@@ -15,7 +15,6 @@ public class Server {
 
 
     }
-
 
     public void start() throws IOException {
         ServerSocket serverSocket = new ServerSocket(PORT);

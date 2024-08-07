@@ -24,7 +24,7 @@ public class Squarantine extends GameObjects {
 
     public Squarantine(int x, int y) {
         super(x, y);
-        setMinimumWave(1);
+        setMinimumWave(0);
         setSpawnNumber(2);
         setHP(10);
         setEnemyType(EnemyType.Squarantine);

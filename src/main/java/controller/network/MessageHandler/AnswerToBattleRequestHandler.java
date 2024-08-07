@@ -33,6 +33,7 @@ public class AnswerToBattleRequestHandler implements MessageHandler {
             game.getPlayers().add(answer.getTarget());
             game.getPlayers().add(answer.getSender());
             game.setBattleMode(answer.getBattleMode());
+            System.out.println(answer.getBattleMode());
             MyProject.getInstance().getDatabase().getGames().add(game);
             game.getGameLoop().start();
         }

@@ -16,10 +16,10 @@ public class WaveData {
         List< Class<? extends GameObjects>> enemyClasses = new ArrayList<>();
 
         if(battleMode.equals(String.valueOf(GameMode.MONOMACHIA))){
-//                enemyClasses.add(Trigorath.class);
+                enemyClasses.add(Trigorath.class);
 //            enemyClasses.add(Squarantine.class);
 //            enemyClasses.add(Omenoct.class);
-            enemyClasses.add(Barricados.class);
+//            enemyClasses.add(Barricados.class);
         }else if(battleMode.equals(String.valueOf(GameMode.COLOSSEUM))){
             enemyClasses.add(Omenoct.class);
             enemyClasses.add(Necropick.class);

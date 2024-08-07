@@ -18,7 +18,7 @@ public class Necropick extends GameObjects  {
         super(x, y);
         setX(x);
         setY(y);
-        setMinimumWave(1);
+        setMinimumWave(0);
         setSpawnNumber(2);
         setHP(10);
         setEnemyType(EnemyType.Necropick);

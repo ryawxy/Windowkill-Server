@@ -9,7 +9,11 @@ public class PreviousDataHandler implements MessageHandler{
     @Override
     public void handleMessage(Message message) {
 
+
         PreviousDataMessage previousDataMessage = (PreviousDataMessage) message;
-        for(LeaderboardData data : previousDataMessage.getData()) MyProject.getInstance().getDatabase().getGameResults().add(data);
+        for(LeaderboardData data : previousDataMessage.getData()){
+            MyProject.getInstance().getDatabase().getGameResults().add(data);
+
+        }
     }
 }

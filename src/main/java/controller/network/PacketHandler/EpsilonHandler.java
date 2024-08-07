@@ -13,6 +13,7 @@ public class EpsilonHandler implements PacketHandler {
     @Override
     public void handlePacket(Packet packet) {
         EpsilonPacket epsilonPacket = (EpsilonPacket) packet;
+        MyProject.getInstance().getDatabase().getAllUsers().get(epsilonPacket.getSender()).getUserData().setHP(epsilonPacket.getHP());
         for (String user : MyProject.getInstance().getDatabase().getClientHandlerMap().keySet()) {
             if (epsilonPacket.getUsers().contains(user)) {
 

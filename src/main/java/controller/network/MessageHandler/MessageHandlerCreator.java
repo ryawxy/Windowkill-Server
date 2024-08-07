@@ -42,6 +42,7 @@ public class MessageHandlerCreator {
         messageHandlerMap.put(MessageType.END_BATTLE,new EndBattleHandler());
         messageHandlerMap.put(MessageType.PREVIOUS_DATA,new PreviousDataHandler());
         messageHandlerMap.put(MessageType.SHOW_RECORDS,new ShowRecordsHandler());
+        messageHandlerMap.put(MessageType.CHANGE_WAVE,new WaveChangerHandler());
         return messageHandlerMap;
     }
 }

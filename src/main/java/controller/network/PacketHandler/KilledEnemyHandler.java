@@ -14,18 +14,19 @@ public class KilledEnemyHandler implements PacketHandler {
     public void handlePacket(Packet packet) {
 
         KilledEnemyPacket killedEnemyPacket = (KilledEnemyPacket) packet;
-        for (String user : MyProject.getInstance().getDatabase().getClientHandlerMap().keySet()) {
-            if (killedEnemyPacket.getUsers().contains(user)) {
+
+        for(String player : killedEnemyPacket.getUsers()){
 
                 try {
-                    UDPClientHandler.getInstance().broadcastMessage(packet, packet.getSenderPort(),MyProject.getInstance().getDatabase().getClientHandlerMap().get(user).getUdpPort() );
+                    UDPClientHandler.getInstance().broadcastMessage(packet, packet.getSenderPort(),MyProject.getInstance().getDatabase().getClientHandlerMap().get(player).getUdpPort() );
                 } catch (JsonProcessingException | SocketException ignored) {
 
                 }
-            }
+
             for(Game game : MyProject.getInstance().getDatabase().getGames()){
                 if(game.getPlayers().contains(killedEnemyPacket.getSender())){
                     game.getGameLoop().getWaveManager().getKilledEnemies().add(killedEnemyPacket.getEnemy());
+                    break;
                 }
             }
         }

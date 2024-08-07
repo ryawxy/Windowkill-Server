@@ -25,7 +25,8 @@ public class TCPClientHandler extends Thread {
     private volatile boolean isClientOnline;
     private InetAddress udpAddress;
     private int udpPort;
-    private Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
+    private final Scanner sc = new Scanner(System.in);
 
 
 public TCPClientHandler(Socket clientSocket) throws IOException {
@@ -49,7 +50,7 @@ public TCPClientHandler(Socket clientSocket) throws IOException {
 
             String receivedJson = receiver.nextLine();
 
-            System.out.println(receivedJson);
+        //    System.out.println(receivedJson);
             if (receivedJson == null) {
                     break;
                 }
@@ -89,16 +90,15 @@ public TCPClientHandler(Socket clientSocket) throws IOException {
         System.out.println(33333);
         while (true) {
             System.out.println(222);
-            String input = scanner.nextLine();
+            String input = sc.nextLine();
             if (input.equalsIgnoreCase("startBattle")) {
                 System.out.println(11111);
                 BattleHandler.initiateBattle();
             }
-            if(input.equalsIgnoreCase("terminateBattle")){
-                BattleHandler.terminateBattle();
-            }
+            else if(input.equalsIgnoreCase("terminateBattle")) BattleHandler.terminateBattle();
         }
     }
+
 
     public InetAddress getUdpAddress() {
         return udpAddress;

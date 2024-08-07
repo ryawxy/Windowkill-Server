@@ -88,8 +88,10 @@ public class GameLoop extends Thread{
 
                     }
 
-                    if (game.getBattleMode().equals(String.valueOf(GameMode.MONOMACHIA))) waveManager.generateWave(1);
-                    waveManager.generateWave(1);
+                    if (game.getBattleMode().equals(String.valueOf(GameMode.MONOMACHIA))) waveManager.generateWave(0);
+                    else {
+                        for(int i=0;i<5;i++) waveManager.generateWave(i);
+                    }
                     if (game.getBattleMode().equals(String.valueOf(GameMode.MONOMACHIA)))
                         endMonomachiaBattle(countTime);
 
@@ -126,16 +128,16 @@ public class GameLoop extends Thread{
     private void endMonomachiaBattle(int time) {
         boolean endGame = false;
 
-        for (OnlineUser onlineUser : MyProject.getInstance().getDatabase().getAllUsers().values()) {
-            if (game.getPlayers().contains(onlineUser.getUserData().getUsername())) {
-                if (onlineUser.getUserData().getHP() <= 0){
-                    endGame = true;
-                    String squad = onlineUser.getUserData().getSquad();
-                    for(String player : game.getPlayers()){
-                        if(!onlineUser.getUserData().getUsername().equals(player)){
-                            if(MyProject.getInstance().getDatabase().getAllUsers().get(player).getUserData().getSquad().equals(squad)
-                                    && onlineUser.getUserData().getHP()>0) endGame = false;
-                        }
+        for(OnlineUser user : MyProject.getInstance().getDatabase().getAllUsers().values()){
+            if(game.getPlayers().contains(user.getUserData().getUsername()) && user.getUserData().getHP()<=0){
+                endGame = true;
+                String username = user.getUserData().getUsername();
+                String squad = user.getUserData().getSquad();
+                for(String players : game.getPlayers()){
+                    if(!players.equals(username) &&
+                            MyProject.getInstance().getDatabase().getAllUsers().get(players).getUserData().
+                                    getSquad().equals(squad) && MyProject.getInstance().getDatabase().getAllUsers().get(players).getUserData().getHP()>0){
+                        endGame = false;
                     }
                 }
             }
@@ -160,6 +162,12 @@ public class GameLoop extends Thread{
                 EndGameMessage endGameMessage = new EndGameMessage();
                 endGameMessage.setPlayers(game.getPlayers());
 
+                if(endGame) {
+                    users.sort(Comparator.comparingInt(u -> u.getUserData().getHP()));
+                    endGameMessage.setWinner(users.getLast().getUserData().getSquad());
+                    tie = false;
+
+                }
                 if (!tie) {
                     endGameMessage.setWinner(users.getLast().getUserData().getSquad());
                     int monomachiaWin = MyProject.getInstance().getDatabase().getSquadMap().get(users.getLast().getUserData().getSquad()).getMonomachiaWin();
@@ -173,25 +181,25 @@ public class GameLoop extends Thread{
                     changeUserDataMessage.setData("XP");
                     changeUserDataMessage.setChangedData(String.valueOf(MyProject.getInstance().getDatabase().getAllUsers().get(username).getUserData().getXP()));
                     changeUserDataMessage.setUsername(username);
-                }
-                if(endGame) {
-                        users.sort(Comparator.comparingInt(u -> u.getUserData().getHP()));
-                        endGameMessage.setWinner(users.getLast().getUserData().getSquad());
 
                 }
+
                 Squad s1 = MyProject.getInstance().getDatabase().getSquadMap().get(MyProject.getInstance().getDatabase().getAllUsers().get(game.getPlayers().get(0)).getUserData().getSquad());
                 Squad s2 = MyProject.getInstance().getDatabase().getSquadMap().get(MyProject.getInstance().getDatabase().getAllUsers().get(game.getPlayers().get(1)).getUserData().getSquad());
 
-
                 for (String player : s1.getMembers()) {
                         MyProject.getInstance().getDatabase().getClientHandlerMap().get(player).sendMessage(endGameMessage);
-                        if (!tie)
+                        if (!tie) {
                             MyProject.getInstance().getDatabase().getClientHandlerMap().get(player).sendMessage(changeUserDataMessage);
+
+                        }
                     }
                 for (String player : s2.getMembers()) {
                     MyProject.getInstance().getDatabase().getClientHandlerMap().get(player).sendMessage(endGameMessage);
-                    if (!tie)
+                    if (!tie) {
                         MyProject.getInstance().getDatabase().getClientHandlerMap().get(player).sendMessage(changeUserDataMessage);
+
+                    }
                 }
 
                 for(String player : game.getPlayers()){

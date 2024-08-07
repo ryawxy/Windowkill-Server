@@ -20,7 +20,7 @@ public class Barricados extends GameObjects  {
         super(x, y);
         setPreviousLocalFrame(getLocalFrame());
         getLocalFrames().add(getLocalFrame());
-        setMinimumWave(1);
+        setMinimumWave(2);
         setSpawnNumber(1);
         setMAX_DIMENSION(1000);
 

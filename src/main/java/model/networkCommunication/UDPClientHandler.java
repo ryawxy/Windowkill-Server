@@ -38,7 +38,7 @@ public class UDPClientHandler extends Thread {
                 udpSocket.receive(receivedPacket);
                 String message = new String(receivedPacket.getData(),0, receivedPacket.getLength());
                 Packet receivePacket = JsonUtils.deserializeFromJson(message, Packet.class);
-                System.out.println(message);
+             //   System.out.println(message);
                 processPacket(receivePacket);
              //   broadcastMessage(receivePacket,receivePacket.getSenderPort(),MyProject.getInstance().getDatabase().getClientHandlerMap());
             } catch (IOException e) {

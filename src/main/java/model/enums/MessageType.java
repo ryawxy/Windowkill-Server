@@ -27,4 +27,5 @@ public enum MessageType {
     END_BATTLE,
     PREVIOUS_DATA,
     SHOW_RECORDS,
+    CHANGE_WAVE,
 }

@@ -73,6 +73,7 @@ public class BattleHandler {
     }
     public static void terminateBattle(){
 
+        System.out.println(5555);
         for(OnlineUser onlineUser : MyProject.getInstance().getDatabase().getAllUsers().values()){
             onlineUser.getUserData().setPlayedMonomachia(false);
             onlineUser.getUserData().setPlayedColosseum(false);

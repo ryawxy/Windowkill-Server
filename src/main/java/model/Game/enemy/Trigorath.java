@@ -17,7 +17,7 @@ public class Trigorath extends GameObjects {
 
     public Trigorath(int x, int y) {
         super(x, y);
-        setMinimumWave(1);
+        setMinimumWave(0);
         setSpawnNumber(2);
         setHP(15);
         setEnemyType(EnemyType.Trigorath);

@@ -2,9 +2,11 @@ package controller.WaveController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import model.Game.Game;
+import model.Game.enemy.Barricados;
 import model.Game.enemy.GameObjects;
 import model.enums.Attack;
 import model.enums.GameMode;
+import model.networkCommunication.Message.WaveChangerMessage;
 import model.networkCommunication.Packet.EnemyPacket;
 import model.networkCommunication.TCPClientHandler;
 import model.networkCommunication.UDPClientHandler;
@@ -23,9 +25,10 @@ public class WaveManager {
     private final Game game;
     private final ArrayList<GameObjects> killedEnemies = new ArrayList<>();
     private int time;
-    private int waveNum = 1;
+    private int waveNum;
     private final List<GameObjects> wave = new ArrayList<>();
     private final ArrayList<Attack> bossAttacks = new ArrayList<>();
+    private int totalEnemy;
     public WaveManager(Game game){
         enemyClasses = WaveData.enemyClasses(game.getBattleMode());
         random = new Random();
@@ -42,7 +45,7 @@ public class WaveManager {
     public void generateWave(int waveNumber) {
 
         time++;
-        System.out.println(time);
+
         if (waveNumber == waveNum) {
 
             if (time >= 3000) {
@@ -65,8 +68,9 @@ public class WaveManager {
                                 GameObjects gameObjects = constructor.newInstance(x, y);
                                 gameObjects.setVisible(true);
                                 int target = random.nextInt(2);
-                                gameObjects.setTargetSquad(MyProject.getInstance().getDatabase().getAllUsers().get(game.getPlayers().get(target)).getUserData().getSquad());
+                                gameObjects.setTargetSquad(MyProject.getInstance().getDatabase().getAllUsers().get(game.getPlayers().get(target)).getUserData().getUsername());
                                 wave.add(gameObjects);
+                               if(!(tempGameObjects instanceof Barricados)) totalEnemy++;
                             }
                         }
                     } catch (NoSuchFieldException | NoSuchMethodException | InvocationTargetException |
@@ -79,13 +83,30 @@ public class WaveManager {
 
                 }
             }
-            if(!killedEnemies.isEmpty() && !game.getBattleMode().equals(String.valueOf(GameMode.MONOMACHIA))) {
-                if (killedEnemies.size() == wave.size()) {
+            if(!killedEnemies.isEmpty()){
+//                System.out.println("^^^^^^");
+            if(!game.getBattleMode().equals(String.valueOf(GameMode.MONOMACHIA))) {
+//                System.out.println("?????????????");
+//                System.out.println(totalEnemy+"{{{{{{");
+//                System.out.println(waveNum+">>>>>>");
+//                System.out.println("killed : "+killedEnemies.size());
+                if (killedEnemies.size() == totalEnemy) {
+        //            System.out.println(totalEnemy+"&&&&&&");
                     waveNum++;
-                    time = 0;
+                    time = -1000;
+                //    System.out.println(111111);
+                    sendWaveMessage();
+                    totalEnemy = 0;
+                    killedEnemies.clear();
                 }
             }
+            }
         }
+    }
+    private void sendWaveMessage(){
+        WaveChangerMessage waveChangerMessage = new WaveChangerMessage();
+        waveChangerMessage.setWave(waveNum);
+        for(String player :game.getPlayers()) MyProject.getInstance().getDatabase().getClientHandlerMap().get(player).sendMessage(waveChangerMessage);
     }
 
 

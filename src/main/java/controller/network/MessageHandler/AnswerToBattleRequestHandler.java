@@ -1,5 +1,6 @@
 package controller.network.MessageHandler;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import model.Game.Game;
 import model.Game.GameLoop;
 import model.Game.Squad;
@@ -12,7 +13,7 @@ import myProject.MyProject;
 public class AnswerToBattleRequestHandler implements MessageHandler {
 
     @Override
-    public void handleMessage(Message message) {
+    public void handleMessage(Message message)  {
         AnswerToBattleRequestMessage answer = (AnswerToBattleRequestMessage) message;
 
         MyProject.getInstance().getDatabase().getClientHandlerMap().get(answer.getTarget()).sendMessage(answer);

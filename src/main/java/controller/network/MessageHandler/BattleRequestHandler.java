@@ -1,6 +1,7 @@
 package controller.network.MessageHandler;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import model.enums.GameMode;
 import model.networkCommunication.Message.BattleRequestMessage;
 import model.networkCommunication.Message.Message;
@@ -8,7 +9,7 @@ import myProject.MyProject;
 
 public class BattleRequestHandler implements MessageHandler{
     @Override
-    public void handleMessage(Message message) {
+    public void handleMessage(Message message)  {
         BattleRequestMessage requestMessage = (BattleRequestMessage) message;
 
         String target = requestMessage.getTarget();

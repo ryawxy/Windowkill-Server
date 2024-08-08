@@ -1,6 +1,7 @@
 package controller.network.MessageHandler;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import model.Game.OnlineUser;
 import model.Game.Squad;
 import model.networkCommunication.Message.LeaveSquadMessage;
@@ -9,7 +10,7 @@ import myProject.MyProject;
 
 public class LeaveSquadHandler implements MessageHandler{
     @Override
-    public void handleMessage(Message message) {
+    public void handleMessage(Message message)  {
 
         LeaveSquadMessage leaveSquadMessage = (LeaveSquadMessage) message;
         String squadName = leaveSquadMessage.getSquad();

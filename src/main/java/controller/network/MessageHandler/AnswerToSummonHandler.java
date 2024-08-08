@@ -1,6 +1,7 @@
 package controller.network.MessageHandler;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import model.Game.Game;
 import model.Game.UserData;
 import model.enums.UserStatus;
@@ -13,12 +14,16 @@ import java.util.Random;
 
 public class AnswerToSummonHandler implements MessageHandler{
     @Override
-    public void handleMessage(Message message) {
+    public void handleMessage(Message message)  {
 
         AnswerToSummonMessage answer = (AnswerToSummonMessage) message;
-        sendResultMessage(answer);
+        try {
+            sendResultMessage(answer);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
-    private void sendResultMessage(AnswerToSummonMessage answer){
+    private void sendResultMessage(AnswerToSummonMessage answer) throws JsonProcessingException {
         AnswerToSummonMessage result = new AnswerToSummonMessage();
         result.setSender(answer.getSender());
         result.setTarget(answer.getTarget());

@@ -7,7 +7,7 @@ import controller.network.PacketHandler.PacketHandlerCreator;
 import model.Game.Game;
 import model.Game.OnlineUser;
 import model.Game.Squad;
-import model.LeaderboardData;
+import model.data.LeaderboardData;
 import model.enums.Color;
 import model.enums.PacketType;
 import model.networkCommunication.TCPClientHandler;

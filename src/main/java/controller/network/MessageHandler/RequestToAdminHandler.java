@@ -1,5 +1,6 @@
 package controller.network.MessageHandler;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import model.Game.OnlineUser;
 import model.Game.Squad;
 import model.Game.UserData;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 
 public class RequestToAdminHandler implements MessageHandler{
     @Override
-    public void handleMessage(Message message) {
+    public void handleMessage(Message message)  {
         if(message instanceof RequestToAdminMessage request){
             if(request.isAccepted()) {
                 MyProject.getInstance().getDatabase().getAllUsers()
@@ -22,10 +23,14 @@ public class RequestToAdminHandler implements MessageHandler{
                 MyProject.getInstance().getDatabase().getSquadMap().get(request.getSquad()).getMembersXP().put(request.getUsername(),
                         MyProject.getInstance().getDatabase().getAllUsers().get(request.getUsername()).getUserData().getXP());
             }
-            resultMessage(request);
+            try {
+                resultMessage(request);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
-    private static void resultMessage(RequestToAdminMessage request){
+    private static void resultMessage(RequestToAdminMessage request) throws JsonProcessingException {
         JoinSquadRequestMessage message = new JoinSquadRequestMessage();
         ArrayList<UserData> users = new ArrayList<>();
         for(Squad squad : MyProject.getInstance().getDatabase().getSquadMap().values()) {

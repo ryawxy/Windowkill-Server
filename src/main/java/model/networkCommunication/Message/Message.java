@@ -35,6 +35,7 @@ import model.enums.MessageType;
 @JsonSubTypes.Type(value = PreviousDataMessage.class,name = "PREVIOUS_DATA"),
 @JsonSubTypes.Type(value = ShowRecordsMessage.class,name = "SHOW_RECORDS"),
 @JsonSubTypes.Type(value = WaveChangerMessage.class,name = "CHANGE_WAVE"),
+@JsonSubTypes.Type(value = ShowHistoryMessage.class,name = "SHOW_HISTORY"),
 })
 
 public class Message {

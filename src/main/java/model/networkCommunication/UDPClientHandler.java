@@ -22,6 +22,7 @@ public class UDPClientHandler extends Thread {
     private final Map<String, TCPClientHandler> clientHandlerMap;
     private static final int PACKET_SIZE = 1024;
     private static UDPClientHandler instance;
+    private JsonUtils jsonUtils = new JsonUtils();
     public UDPClientHandler() throws SocketException {
         clientHandlerMap = new ConcurrentHashMap<>();
         this.udpSocket = new DatagramSocket(PORT);
@@ -37,7 +38,7 @@ public class UDPClientHandler extends Thread {
                 DatagramPacket receivedPacket = new DatagramPacket(receivedData, receivedData.length);
                 udpSocket.receive(receivedPacket);
                 String message = new String(receivedPacket.getData(),0, receivedPacket.getLength());
-                Packet receivePacket = JsonUtils.deserializeFromJson(message, Packet.class);
+                Packet receivePacket = jsonUtils.deserializeFromJson(message, Packet.class);
              //   System.out.println(message);
                 processPacket(receivePacket);
              //   broadcastMessage(receivePacket,receivePacket.getSenderPort(),MyProject.getInstance().getDatabase().getClientHandlerMap());
@@ -54,7 +55,7 @@ public class UDPClientHandler extends Thread {
     }
     public void broadcastMessage(Packet packet, int senderPort,int UDPPort) throws JsonProcessingException {
 
-        String message = JsonUtils.serializeToJson(packet);
+        String message = jsonUtils.serializeToJson(packet);
 
             byte[] sendData = message.getBytes();
          //      for(TCPClientHandler TCPClientHandler : M.values()){

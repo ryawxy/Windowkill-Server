@@ -1,6 +1,6 @@
 package controller.network.MessageHandler;
 
-import model.LeaderboardData;
+import model.data.LeaderboardData;
 import model.networkCommunication.Message.Message;
 import model.networkCommunication.Message.PreviousDataMessage;
 import myProject.MyProject;

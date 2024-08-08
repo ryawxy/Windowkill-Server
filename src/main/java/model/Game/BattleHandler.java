@@ -1,6 +1,8 @@
 package model.Game;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import controller.Constants;
+import model.data.BattleHistory;
 import model.enums.VaultItem;
 import model.networkCommunication.Message.ChangeUserDataMessage;
 import model.networkCommunication.Message.EndBattleMessage;
@@ -16,7 +18,7 @@ public class BattleHandler {
     public BattleHandler() {
 
     }
-    public static void initiateBattle(){
+    public static void initiateBattle() throws JsonProcessingException {
         System.out.println("**************");
         pairs.clear();
         winners.clear();
@@ -31,7 +33,7 @@ public class BattleHandler {
        for(Pair<Squad,Squad> pair : pairs) notifyMembers(pair.first(),pair.second());
        MyProject.getInstance().setBattleStarted(true);
     }
-    public static void notifyMembers(Squad squad1, Squad squad2){
+    public static void notifyMembers(Squad squad1, Squad squad2) throws JsonProcessingException {
 
         StartBattleMessage startBattleMessage1 = new StartBattleMessage();
         ArrayList<UserData> users = new ArrayList<>();
@@ -71,7 +73,7 @@ public class BattleHandler {
             MyProject.getInstance().getDatabase().getClientHandlerMap().get(username).sendMessage(startBattleMessage);
         }
     }
-    public static void terminateBattle(){
+    public static void terminateBattle() throws JsonProcessingException {
 
         System.out.println(5555);
         for(OnlineUser onlineUser : MyProject.getInstance().getDatabase().getAllUsers().values()){
@@ -80,26 +82,55 @@ public class BattleHandler {
         }
         MyProject.getInstance().setBattleStarted(false);
         for(Pair<Squad,Squad> pair : pairs){
+            BattleHistory battleHistory = new BattleHistory();
+            battleHistory.setS1(pair.first.getSquadName());
+            battleHistory.setS2(pair.second.getSquadName());
+            if(pair.first().getTotalXP()>pair.second().getTotalXP()){
+                winners.add(pair.first());
+                battleHistory.setWinner(pair.first.getSquadName());
 
-            if(pair.first().getTotalXP()>pair.second().getTotalXP()) winners.add(pair.first());
-            else if(pair.first().getTotalXP()<pair.second().getTotalXP())winners.add(pair.second());
+            }
+            else if(pair.first().getTotalXP()<pair.second().getTotalXP()){
+                winners.add(pair.second());
+                battleHistory.setWinner(pair.second.getSquadName());
+            }
             else{
-                if(pair.first().getMonomachiaWin()>pair.second().getMonomachiaWin()) winners.add(pair.first());
-                else if(pair.first().getMonomachiaWin()<pair.second().getMonomachiaWin()) winners.add(pair.second());
+                if(pair.first().getMonomachiaWin()>pair.second().getMonomachiaWin()){
+                    winners.add(pair.first());
+                    battleHistory.setWinner(pair.first.getSquadName());
+                }
+                else if(pair.first().getMonomachiaWin()<pair.second().getMonomachiaWin()){
+                    winners.add(pair.second());
+                    battleHistory.setWinner(pair.second.getSquadName());
+                }
                 else{
                     if(pair.first().getVaultItems().get(VaultItem.CallOfGefjon)>0 &&
-                            pair.second().getVaultItems().get(VaultItem.CallOfGefjon)<=0) winners.add(pair.first());
+                            pair.second().getVaultItems().get(VaultItem.CallOfGefjon)<=0){
+                        winners.add(pair.first());
+                        battleHistory.setWinner(pair.first.getSquadName());
+                    }
                     else if(pair.first().getVaultItems().get(VaultItem.CallOfGefjon)<=0 &&
-                            pair.second().getVaultItems().get(VaultItem.CallOfGefjon)>0) winners.add(pair.second());
+                            pair.second().getVaultItems().get(VaultItem.CallOfGefjon)>0){
+                        winners.add(pair.second());
+                        battleHistory.setWinner(pair.second.getSquadName());
+                    }
                     else{
                         Random random = new Random();
                         int index = random.nextInt(2);
-                        if(index == 0) winners.add(pair.first());
-                        else winners.add(pair.second());
+                        if(index == 0){
+                            winners.add(pair.first());
+                            battleHistory.setWinner(pair.first.getSquadName());
+                        }
+                        else {
+                            winners.add(pair.second());
+                            battleHistory.setWinner(pair.second.getSquadName());
+                        }
                     }
                 }
             }
+            BattleHistory.addResult(battleHistory);
         }
+
         for(Pair<Squad, Squad> pair : pairs){
             if(!winners.contains(pair.first())) losers.add(pair.first());
             else losers.add(pair.second());
@@ -107,7 +138,7 @@ public class BattleHandler {
         assignBattleXP();
         sendEndBattleMessage();
     }
-    public static void sendEndBattleMessage(){
+    public static void sendEndBattleMessage() throws JsonProcessingException {
        for(Squad squad : winners){
            for(String member : squad.getMembers()){
                EndBattleMessage endBattleMessage = new EndBattleMessage();
@@ -123,7 +154,7 @@ public class BattleHandler {
             }
         }
     }
-    public static void assignBattleXP(){
+    public static void assignBattleXP() throws JsonProcessingException {
         for(Squad winner : winners){
             for(String member : winner.getMembers()){
                 int XP = MyProject.getInstance().getDatabase().getAllUsers().get(member).getUserData().getXP();
@@ -149,7 +180,7 @@ public class BattleHandler {
         }
        sendChangedData();
     }
-    public static void sendChangedData(){
+    public static void sendChangedData() throws JsonProcessingException {
         for(Squad squad : winners) {
             for (String member : squad.getMembers()) {
                 ChangeUserDataMessage changeUserDataMessage = new ChangeUserDataMessage();

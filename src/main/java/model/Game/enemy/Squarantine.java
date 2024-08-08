@@ -1,6 +1,7 @@
 package model.Game.enemy;
 
 import model.enums.EnemyType;
+import model.enums.GameMode;
 
 public class Squarantine extends GameObjects {
 
@@ -29,6 +30,7 @@ public class Squarantine extends GameObjects {
         setHP(10);
         setEnemyType(EnemyType.Squarantine);
         setMAX_DIMENSION(300);
+        getBattles().add(String.valueOf(GameMode.MONOMACHIA));
     }
 
 

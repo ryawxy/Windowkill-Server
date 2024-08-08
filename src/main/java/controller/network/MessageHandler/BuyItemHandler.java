@@ -1,5 +1,6 @@
 package controller.network.MessageHandler;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import model.Game.OnlineUser;
 import model.Game.Squad;
 import model.networkCommunication.Message.BuyItemMessage;
@@ -8,7 +9,7 @@ import myProject.MyProject;
 
 public class BuyItemHandler implements MessageHandler{
     @Override
-    public void handleMessage(Message message) {
+    public void handleMessage(Message message)  {
 
         BuyItemMessage buyItemMessage = (BuyItemMessage) message;
         Squad squad = MyProject.getInstance().getDatabase().getSquadMap().get(buyItemMessage.getSquad());

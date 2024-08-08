@@ -1,6 +1,7 @@
 package model.Game.enemy;
 
 import model.enums.EnemyType;
+import model.enums.GameMode;
 
 public class Trigorath extends GameObjects {
 
@@ -22,6 +23,7 @@ public class Trigorath extends GameObjects {
         setHP(15);
         setEnemyType(EnemyType.Trigorath);
         setMAX_DIMENSION(300);
+        getBattles().add(String.valueOf(GameMode.MONOMACHIA));
     }
 
     public int getAngle() {

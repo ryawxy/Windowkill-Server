@@ -1,6 +1,6 @@
 package model.networkCommunication.Message;
 
-import model.LeaderboardData;
+import model.data.LeaderboardData;
 import model.enums.MessageType;
 
 import java.util.ArrayList;

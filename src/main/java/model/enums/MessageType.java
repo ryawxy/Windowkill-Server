@@ -28,4 +28,6 @@ public enum MessageType {
     PREVIOUS_DATA,
     SHOW_RECORDS,
     CHANGE_WAVE,
+    SHOW_HISTORY,
+    EXCEPTION,
 }

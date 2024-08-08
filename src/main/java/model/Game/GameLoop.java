@@ -1,5 +1,6 @@
 package model.Game;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import controller.WaveController.WaveData;
 import controller.WaveController.WaveManager;
 import model.enums.GameMode;
@@ -81,19 +82,37 @@ public class GameLoop extends Thread{
 
                         startGameMessage.setBattleMode(game.getBattleMode());
 
-                        for (String player : game.getPlayers())
+                        for (String player : game.getPlayers()) {
                             MyProject.getInstance().getDatabase().
                                     getClientHandlerMap().get(player).sendMessage(startGameMessage);
+                        }
 
 
                     }
 
-                    if (game.getBattleMode().equals(String.valueOf(GameMode.MONOMACHIA))) waveManager.generateWave(0);
+                    if (game.getBattleMode().equals(String.valueOf(GameMode.MONOMACHIA))) {
+                        try {
+                            waveManager.generateWave(0);
+                        } catch (JsonProcessingException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
                     else {
-                        for(int i=0;i<5;i++) waveManager.generateWave(i);
+                        for(int i=0;i<5;i++) {
+                            try {
+                                waveManager.generateWave(i);
+                            } catch (JsonProcessingException e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
                     }
-                    if (game.getBattleMode().equals(String.valueOf(GameMode.MONOMACHIA)))
-                        endMonomachiaBattle(countTime);
+                    if (game.getBattleMode().equals(String.valueOf(GameMode.MONOMACHIA))) {
+                        try {
+                            endMonomachiaBattle(countTime);
+                        } catch (JsonProcessingException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
 
                     frames++;
                     deltaFrame--;
@@ -125,7 +144,7 @@ public class GameLoop extends Thread{
         isGameStarted = gameStarted;
     }
 
-    private void endMonomachiaBattle(int time) {
+    private void endMonomachiaBattle(int time) throws JsonProcessingException {
         boolean endGame = false;
 
         for(OnlineUser user : MyProject.getInstance().getDatabase().getAllUsers().values()){

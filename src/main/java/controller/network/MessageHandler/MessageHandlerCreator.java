@@ -43,6 +43,8 @@ public class MessageHandlerCreator {
         messageHandlerMap.put(MessageType.PREVIOUS_DATA,new PreviousDataHandler());
         messageHandlerMap.put(MessageType.SHOW_RECORDS,new ShowRecordsHandler());
         messageHandlerMap.put(MessageType.CHANGE_WAVE,new WaveChangerHandler());
+        messageHandlerMap.put(MessageType.SHOW_HISTORY,new ShowHistoryHandler());
+        messageHandlerMap.put(MessageType.EXCEPTION,new ExceptionHandler());
         return messageHandlerMap;
     }
 }

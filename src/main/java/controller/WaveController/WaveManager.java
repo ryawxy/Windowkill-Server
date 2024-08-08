@@ -30,7 +30,7 @@ public class WaveManager {
     private final ArrayList<Attack> bossAttacks = new ArrayList<>();
     private int totalEnemy;
     public WaveManager(Game game){
-        enemyClasses = WaveData.enemyClasses(game.getBattleMode());
+        enemyClasses = new ArrayList<>(WaveData.getBattleModeEnemies(game.getBattleMode()));
         random = new Random();
         this.game = game;
         bossAttacks.add(Attack.POWERPUNCH);
@@ -41,36 +41,40 @@ public class WaveManager {
         bossAttacks.add(Attack.ANNIHILATOR);
         bossAttacks.add(Attack.SLAP);
         bossAttacks.add(Attack.VOMIT);
+
     }
-    public void generateWave(int waveNumber) {
+    public void generateWave(int waveNumber) throws JsonProcessingException {
 
         time++;
 
+        System.out.println(time);
         if (waveNumber == waveNum) {
 
-            if (time >= 3000) {
+            if (time >= 2000) {
                 if (killedEnemies.isEmpty()) {
                     wave.clear();
                     int index = random.nextInt(enemyClasses.size());
                     Class<? extends GameObjects> enemyClass = enemyClasses.get(index);
-
+                    System.out.println(enemyClass);
                     try {
                         Field minWaveField = enemyClass.getSuperclass().getDeclaredField("minimumWave");
                         minWaveField.setAccessible(true);
                         Constructor<? extends GameObjects> constructor = enemyClass.getConstructor(int.class, int.class);
                         GameObjects tempGameObjects = constructor.newInstance(0, 0);
                         int minWave = tempGameObjects.getMinimumWave();
-                        if (waveNumber >= minWave) {
-                            int numberOfEnemies = tempGameObjects.getSpawnNumber();
-                            for (int i = 0; i < 1; i++) {
-                                int x = random.nextInt(tempGameObjects.getMAX_DIMENSION());
-                                int y = random.nextInt(tempGameObjects.getMAX_DIMENSION());
-                                GameObjects gameObjects = constructor.newInstance(x, y);
-                                gameObjects.setVisible(true);
-                                int target = random.nextInt(2);
-                                gameObjects.setTargetSquad(MyProject.getInstance().getDatabase().getAllUsers().get(game.getPlayers().get(target)).getUserData().getUsername());
-                                wave.add(gameObjects);
-                               if(!(tempGameObjects instanceof Barricados)) totalEnemy++;
+                        if(tempGameObjects.getBattles().contains(game.getBattleMode())) {
+                            if (waveNumber >= minWave) {
+                                int numberOfEnemies = tempGameObjects.getSpawnNumber();
+                                for (int i = 0; i < 1; i++) {
+                                    int x = random.nextInt(tempGameObjects.getMAX_DIMENSION());
+                                    int y = random.nextInt(tempGameObjects.getMAX_DIMENSION());
+                                    GameObjects gameObjects = constructor.newInstance(x, y);
+                                    gameObjects.setVisible(true);
+                                    int target = random.nextInt(2);
+                                    gameObjects.setTargetSquad(MyProject.getInstance().getDatabase().getAllUsers().get(game.getPlayers().get(target)).getUserData().getUsername());
+                                    wave.add(gameObjects);
+                                    if (!(tempGameObjects instanceof Barricados)) totalEnemy++;
+                                }
                             }
                         }
                     } catch (NoSuchFieldException | NoSuchMethodException | InvocationTargetException |
@@ -82,6 +86,7 @@ public class WaveManager {
                     time = 0;
 
                 }
+
             }
             if(!killedEnemies.isEmpty()){
 //                System.out.println("^^^^^^");

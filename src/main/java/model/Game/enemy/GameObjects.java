@@ -57,6 +57,7 @@ public class GameObjects {
     private int frameHeight;
     private String frameTitle;
     private int MAX_DIMENSION;
+    private ArrayList<String> battles  = new ArrayList<>();
 
     public GameObjects() {
     }
@@ -313,5 +314,13 @@ public class GameObjects {
 
     public void setMAX_DIMENSION(int MAX_DIMENSION) {
         this.MAX_DIMENSION = MAX_DIMENSION;
+    }
+
+    public ArrayList<String> getBattles() {
+        return battles;
+    }
+
+    public void setBattles(ArrayList<String> battles) {
+        this.battles = battles;
     }
 }

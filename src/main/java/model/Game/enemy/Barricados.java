@@ -3,6 +3,7 @@ package model.Game.enemy;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import controller.Constants;
 import model.enums.EnemyType;
+import model.enums.GameMode;
 
 import javax.swing.*;
 
@@ -23,6 +24,7 @@ public class Barricados extends GameObjects  {
         setMinimumWave(2);
         setSpawnNumber(1);
         setMAX_DIMENSION(1000);
+        getBattles().add(String.valueOf(GameMode.COLOSSEUM));
 
         setEnemyType(EnemyType.Barricados2);
     }

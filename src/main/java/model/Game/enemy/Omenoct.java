@@ -1,6 +1,7 @@
 package model.Game.enemy;
 
 import model.enums.EnemyType;
+import model.enums.GameMode;
 
 public class Omenoct extends GameObjects{
     private boolean visible = true;
@@ -21,6 +22,8 @@ public class Omenoct extends GameObjects{
         setEnemyType(EnemyType.Omenoct);
         setHP(20);
         setMAX_DIMENSION(300);
+        getBattles().add(String.valueOf(GameMode.COLOSSEUM));
+        getBattles().add(String.valueOf(GameMode.MONOMACHIA));
 
     }
 

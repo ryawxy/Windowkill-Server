@@ -1,5 +1,6 @@
 package controller.network.MessageHandler;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import controller.UsernameLogic;
 import model.Game.BattleHandler;
 import model.Game.OnlineUser;
@@ -23,7 +24,7 @@ public class SignUpHandler implements MessageHandler{
     }
 
     @Override
-    public void handleMessage(Message message) {
+    public void handleMessage(Message message)  {
 
         if(usernameLogic.okToSignUp(((SignUPMessage)message).getUsername())){
             OnlineUser onlineUser = new OnlineUser();
@@ -90,13 +91,13 @@ public class SignUpHandler implements MessageHandler{
             sendChangeStateMessage(((SignUPMessage) message).getUsername());
         }
     }
-    private void sendChangeStateMessage(String username){
+    private void sendChangeStateMessage(String username)  {
         ChangeStateMessage changeStateMessage = new ChangeStateMessage();
         changeStateMessage.setState("Online");
         changeStateMessage.setUsername(username);
 
         for(String user : MyProject.getInstance().getDatabase().getClientHandlerMap().keySet())
             if(!user.equals(username))
-                MyProject.getInstance().getDatabase().getClientHandlerMap().get(user).sendMessage(changeStateMessage);
+                MyProject.getInstance().getDatabase().getClientHandlerMap().get(user).getService().sendMessage(changeStateMessage);
     }
 }

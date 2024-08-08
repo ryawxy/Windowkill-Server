@@ -2,6 +2,7 @@ package model.Game.enemy;
 
 
 import model.enums.EnemyType;
+import model.enums.GameMode;
 
 import java.util.Random;
 
@@ -23,6 +24,7 @@ public class Necropick extends GameObjects  {
         setHP(10);
         setEnemyType(EnemyType.Necropick);
         setMAX_DIMENSION(300);
+        getBattles().add(String.valueOf(GameMode.COLOSSEUM));
     }
 
     @Override

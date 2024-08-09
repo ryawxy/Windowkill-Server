@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5daa1bfd-aaed-44da-abf0-a91f2603f16c" name="Changes" comment="final commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/clientsData/a.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientsData/a.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/clientsData/c.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientsData/c.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/clientsData/x.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientsData/x.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/WaveController/WaveManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/WaveController/WaveManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Game/GameLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Game/GameLoop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Game/enemy/Trigorath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Game/enemy/Trigorath.java" afterDir="false" />
-    </list>
+    <list default="true" id="5daa1bfd-aaed-44da-abf0-a91f2603f16c" name="Changes" comment="fixed some bugs" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -201,7 +193,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723187864111</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="fixed some bugs">
+      <option name="closed" value="true" />
+      <created>1723215701937</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1723215701937</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -231,7 +231,8 @@
     <MESSAGE value="global exception handler" />
     <MESSAGE value="saving clients data in separate files" />
     <MESSAGE value="final commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="final commit" />
+    <MESSAGE value="fixed some bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed some bugs" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

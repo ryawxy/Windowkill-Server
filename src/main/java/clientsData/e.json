@@ -1,0 +1,22 @@
+{
+  "userData" : {
+    "username" : "e",
+    "squad" : "a",
+    "status" : "Online",
+    "vault" : 0,
+    "numberOfMembers" : 0,
+    "x" : 0,
+    "y" : 0,
+    "color" : null,
+    "activatedItems" : {
+      "CallOfGefjon" : 0,
+      "CallOfAdonis" : 0,
+      "CallOfPalioxis" : 0
+    },
+    "playedMonomachia" : true,
+    "playedColosseum" : false,
+    "xp" : 9900,
+    "hp" : -520,
+    "userOnline" : false
+  }
+}

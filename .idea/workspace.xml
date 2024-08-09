@@ -4,20 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5daa1bfd-aaed-44da-abf0-a91f2603f16c" name="Changes" comment="global exception handler">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/SaveLoop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/data/SquadData.java" afterDir="false" />
+    <list default="true" id="5daa1bfd-aaed-44da-abf0-a91f2603f16c" name="Changes" comment="saving clients data in separate files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/JsonUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/JsonUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/exceptionHandler/JsonUtilsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exceptionHandler/JsonUtilsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/NewSquadHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/NewSquadHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/SignUpHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/SignUpHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Game/GameLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Game/GameLoop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/TCPClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/TCPClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myProject/ClientData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/data/ClientData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myProject/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myProject/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myProject/MyProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myProject/MyProject.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +179,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723107876821</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="saving clients data in separate files">
+      <option name="closed" value="true" />
+      <created>1723187222125</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1723187222125</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -219,7 +215,8 @@
     <MESSAGE value="sending and receiving leaderboard data" />
     <MESSAGE value="changing waves" />
     <MESSAGE value="global exception handler" />
-    <option name="LAST_COMMIT_MESSAGE" value="global exception handler" />
+    <MESSAGE value="saving clients data in separate files" />
+    <option name="LAST_COMMIT_MESSAGE" value="saving clients data in separate files" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

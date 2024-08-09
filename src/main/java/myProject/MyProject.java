@@ -1,5 +1,8 @@
 package myProject;
 
+import controller.SaveLoop;
+import model.data.ClientData;
+
 import java.util.ArrayList;
 
 public class MyProject {
@@ -11,6 +14,7 @@ public class MyProject {
     public MyProject(){
      database = new Database();
      for(String user : database.getAllUsers().keySet()) database.getMessageQueMap().put(user,new ArrayList<>());
+
     }
 
     public static synchronized MyProject getInstance() {

@@ -2,6 +2,7 @@ package controller.network.MessageHandler;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import model.Game.Squad;
+import model.data.SquadData;
 import model.networkCommunication.Message.Message;
 import model.networkCommunication.Message.NewSquadMessage;
 import myProject.MyProject;
@@ -18,9 +19,7 @@ public class NewSquadHandler implements MessageHandler{
             squad.getMembersStatus().put(admin,"Online");
             MyProject.getInstance().getDatabase().getSquadMap().put(squadName,squad);
             MyProject.getInstance().getDatabase().getAllUsers().get(admin).getUserData().setSquad(squadName);
-
-
-
+            MyProject.getInstance().getDatabase().getSquadData().getSquadMap().put(squadName,squad);
            MyProject.getInstance().getDatabase().getClientHandlerMap().get(admin).sendMessage(message);
 
 

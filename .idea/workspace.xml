@@ -4,61 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5daa1bfd-aaed-44da-abf0-a91f2603f16c" name="Changes" comment="changing waves">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/exceptionHandler/ExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/exceptionHandler/ExceptionHandlingProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/exceptionHandler/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/exceptionHandler/HandleExceptions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/exceptionHandler/JsonUtilsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/exceptionHandler/TCPClientHandlerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/ExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/ShowHistoryHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/data/BattleHistory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/ShowHistoryMessage.java" afterDir="false" />
+    <list default="true" id="5daa1bfd-aaed-44da-abf0-a91f2603f16c" name="Changes" comment="global exception handler">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/SaveLoop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/data/SquadData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/JsonUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/JsonUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/WaveController/WaveData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/WaveController/WaveData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/WaveController/WaveManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/WaveController/WaveManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/AnswerToBattleRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/AnswerToBattleRequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/AnswerToSummonHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/AnswerToSummonHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/BattleRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/BattleRequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/BuyItemHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/BuyItemHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/ChangeUserDataHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/ChangeUserDataHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/DisconnectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/DisconnectionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/JoinSquadRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/JoinSquadRequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/LeaveSquadHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/LeaveSquadHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/MessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/MessageHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/MessageHandlerCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/MessageHandlerCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/exceptionHandler/JsonUtilsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exceptionHandler/JsonUtilsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/NewSquadHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/NewSquadHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/PauseGameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/PauseGameHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/PayToVaultHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/PayToVaultHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/PreviousDataHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/PreviousDataHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/RemoveMemberHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/RemoveMemberHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/RequestToAdminHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/RequestToAdminHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/ShowRecordsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/ShowRecordsHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/ShowSquadsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/ShowSquadsHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/SignUpHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/SignUpHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/SquadDataHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/SquadDataHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/SummonHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/network/MessageHandler/SummonHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Game/BattleHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Game/BattleHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Game/GameLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Game/GameLoop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Game/enemy/Barricados.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Game/enemy/Barricados.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Game/enemy/GameObjects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Game/enemy/GameObjects.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Game/enemy/Necropick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Game/enemy/Necropick.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Game/enemy/Omenoct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Game/enemy/Omenoct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Game/enemy/Squarantine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Game/enemy/Squarantine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Game/enemy/Trigorath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Game/enemy/Trigorath.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/LeaderboardData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/data/LeaderboardData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/enums/MessageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/enums/MessageType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/PreviousDataMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/PreviousDataMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/ShowRecordsMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Message/ShowRecordsMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/TCPClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/TCPClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/networkCommunication/UDPClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/networkCommunication/UDPClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myProject/ClientData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/data/ClientData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/myProject/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myProject/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myProject/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myProject/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myProject/MyProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myProject/MyProject.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,8 +29,8 @@
       <list>
         <option value="Enum" />
         <option value="AnnotationType" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -224,7 +183,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723019459399</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="global exception handler">
+      <option name="closed" value="true" />
+      <created>1723107876821</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1723107876821</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -251,7 +218,8 @@
     <MESSAGE value="colesseum battle created" />
     <MESSAGE value="sending and receiving leaderboard data" />
     <MESSAGE value="changing waves" />
-    <option name="LAST_COMMIT_MESSAGE" value="changing waves" />
+    <MESSAGE value="global exception handler" />
+    <option name="LAST_COMMIT_MESSAGE" value="global exception handler" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

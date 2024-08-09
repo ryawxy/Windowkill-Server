@@ -1,5 +1,6 @@
 package myProject;
 
+import controller.SaveLoop;
 import controller.network.MessageHandler.MessageHandler;
 import controller.network.MessageHandler.MessageHandlerCreator;
 import controller.network.PacketHandler.PacketHandler;
@@ -7,7 +8,9 @@ import controller.network.PacketHandler.PacketHandlerCreator;
 import model.Game.Game;
 import model.Game.OnlineUser;
 import model.Game.Squad;
+import model.data.ClientData;
 import model.data.LeaderboardData;
+import model.data.SquadData;
 import model.enums.Color;
 import model.enums.PacketType;
 import model.networkCommunication.TCPClientHandler;
@@ -30,6 +33,7 @@ public class Database {
     private ArrayList<Squad> squadsInBattle = new ArrayList<>();
     private ArrayList<ClientData> clientsData = new ArrayList<>();
     private ArrayList<LeaderboardData> GameResults = new ArrayList<>();
+    private SquadData squadData = new SquadData();
 
     public Database(){
         clientHandlerMap = new ConcurrentHashMap<>();
@@ -45,6 +49,7 @@ public class Database {
         colors.add(Color.Pink);
         colors.add(Color.Green);
 
+        new SaveLoop().start();
     }
 
     public Map<String, TCPClientHandler> getClientHandlerMap() {
@@ -133,5 +138,13 @@ public class Database {
 
     public void setGameResults(ArrayList<LeaderboardData> gameResults) {
         GameResults = gameResults;
+    }
+
+    public SquadData getSquadData() {
+        return squadData;
+    }
+
+    public void setSquadData(SquadData squadData) {
+        this.squadData = squadData;
     }
 }

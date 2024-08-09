@@ -13,13 +13,11 @@ public class JsonUtils implements JsonUtilsService {
 
     @HandleExceptions
     @Override
-    public String serializeToJson(Object object) {
-        try {
-            return objectMapper.writeValueAsString(object);
-        } catch (JsonProcessingException e) {
+    public String serializeToJson(Object object) throws JsonProcessingException {
 
-        }
-        return null;
+            return objectMapper.writeValueAsString(object);
+
+
     }
     @HandleExceptions
     @Override
@@ -27,12 +25,14 @@ public class JsonUtils implements JsonUtilsService {
         objectMapper.enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
         objectMapper.enable(DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT);
         objectMapper.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
+
         try {
             return objectMapper.readValue(json,valueType);
         } catch (JsonProcessingException e) {
-
+            throw new RuntimeException("x");
         }
-        return null;
+
+
     }
 
 }

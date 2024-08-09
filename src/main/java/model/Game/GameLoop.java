@@ -3,6 +3,7 @@ package model.Game;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import controller.WaveController.WaveData;
 import controller.WaveController.WaveManager;
+import model.data.ClientData;
 import model.enums.GameMode;
 import model.enums.UserStatus;
 import model.networkCommunication.Message.ChangeStateMessage;
@@ -26,8 +27,6 @@ public class GameLoop extends Thread{
         this.game = game;
         waveManager = new WaveManager(game);
     }
-
-
     @Override
     public void run() {
         double timePerFrame = 1000000000.0 / 120;

@@ -9,6 +9,7 @@ import java.util.Scanner;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.exc.InvalidTypeIdException;
 import controller.JsonUtils;
 import controller.exceptionHandler.*;
 import controller.network.MessageHandler.MessageHandler;
@@ -28,7 +29,7 @@ public class TCPClientHandler extends Thread implements TCPClientHandlerService 
     private int udpPort;
     private final Scanner sc = new Scanner(System.in);
     private final TCPClientHandlerService service;
-    private JsonUtils jsonUtils = new JsonUtils();
+    private final JsonUtils jsonUtils = new JsonUtils();
 
 
 
@@ -79,8 +80,13 @@ public class TCPClientHandler extends Thread implements TCPClientHandlerService 
     public void sendMessage(Message message)  {
 
         String jsonString = null;
-        jsonString = jsonUtils.serializeToJson(message);
+        try {
+            jsonString = jsonUtils.serializeToJson(message);
+        } catch (JsonProcessingException e) {
+
+        }
         sender.println(jsonString);
+
 
     }
     public void startBattle() {

@@ -7,7 +7,7 @@ public interface JsonUtilsService {
         return null;
     }
 
-     public default <T> T deserializeFromJson(String json, Class<T> valueType) throws JsonProcessingException {
+     public default <T> T deserializeFromJson(String json, Class<T> valueType)  {
         return null;
     }
 }

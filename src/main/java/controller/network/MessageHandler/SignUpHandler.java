@@ -1,6 +1,5 @@
 package controller.network.MessageHandler;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import controller.UsernameLogic;
 import model.Game.BattleHandler;
 import model.Game.OnlineUser;
@@ -11,7 +10,7 @@ import model.networkCommunication.Message.ChangeStateMessage;
 import model.networkCommunication.TCPClientHandler;
 import model.networkCommunication.Message.Message;
 import model.networkCommunication.Message.SignUPMessage;
-import myProject.ClientData;
+import model.data.ClientData;
 import myProject.MyProject;
 
 import java.util.ArrayList;

@@ -46,8 +46,6 @@ public class WaveManager {
     public void generateWave(int waveNumber) throws JsonProcessingException {
 
         time++;
-
-        System.out.println(time);
         if (waveNumber == waveNum) {
 
             if (time >= 2000) {
@@ -55,7 +53,7 @@ public class WaveManager {
                     wave.clear();
                     int index = random.nextInt(enemyClasses.size());
                     Class<? extends GameObjects> enemyClass = enemyClasses.get(index);
-                    System.out.println(enemyClass);
+
                     try {
                         Field minWaveField = enemyClass.getSuperclass().getDeclaredField("minimumWave");
                         minWaveField.setAccessible(true);
@@ -72,6 +70,7 @@ public class WaveManager {
                                     gameObjects.setVisible(true);
                                     int target = random.nextInt(2);
                                     gameObjects.setTargetSquad(MyProject.getInstance().getDatabase().getAllUsers().get(game.getPlayers().get(target)).getUserData().getUsername());
+
                                     wave.add(gameObjects);
                                     if (!(tempGameObjects instanceof Barricados)) totalEnemy++;
                                 }
@@ -134,5 +133,13 @@ public class WaveManager {
 
     public ArrayList<GameObjects> getKilledEnemies() {
         return killedEnemies;
+    }
+
+    public int getWaveNum() {
+        return waveNum;
+    }
+
+    public void setWaveNum(int waveNum) {
+        this.waveNum = waveNum;
     }
 }

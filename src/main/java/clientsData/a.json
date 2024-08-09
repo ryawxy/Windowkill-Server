@@ -10,13 +10,13 @@
     "color" : null,
     "activatedItems" : {
       "CallOfPalioxis" : 0,
-      "CallOfGefjon" : 0,
-      "CallOfAdonis" : 0
+      "CallOfAdonis" : 0,
+      "CallOfGefjon" : 0
     },
-    "playedMonomachia" : false,
+    "playedMonomachia" : true,
     "playedColosseum" : false,
     "xp" : 9900,
-    "hp" : 100,
+    "hp" : -16,
     "userOnline" : false
   }
 }

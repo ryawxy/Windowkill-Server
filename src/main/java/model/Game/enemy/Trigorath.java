@@ -24,6 +24,7 @@ public class Trigorath extends GameObjects {
         setEnemyType(EnemyType.Trigorath);
         setMAX_DIMENSION(300);
         getBattles().add(String.valueOf(GameMode.MONOMACHIA));
+        getBattles().add(String.valueOf(GameMode.COLOSSEUM));
     }
 
     public int getAngle() {

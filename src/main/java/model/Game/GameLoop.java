@@ -112,6 +112,11 @@ public class GameLoop extends Thread{
                             throw new RuntimeException(e);
                         }
                     }
+                        if(game.getBattleMode().equals(String.valueOf(GameMode.COLOSSEUM))){
+                            loseCollosseumBattle();
+                            winCollosseumBattle();
+                        }
+
 
                     frames++;
                     deltaFrame--;
@@ -141,6 +146,98 @@ public class GameLoop extends Thread{
 
     public void setGameStarted(boolean gameStarted) {
         isGameStarted = gameStarted;
+    }
+
+    private void winCollosseumBattle(){
+
+        if(waveManager.getWaveNum()>5) game.setPaused(true);
+
+        EndGameMessage endGameMessage = new EndGameMessage();
+        endGameMessage.setWinner("win");
+
+        for(String player : game.getPlayers()) MyProject.getInstance().getDatabase().getClientHandlerMap().get(player).sendMessage(endGameMessage);
+
+        for(String player : game.getPlayers()) MyProject.getInstance().getDatabase().getClientHandlerMap().get(player).sendMessage(endGameMessage);
+
+        Squad s1 = MyProject.getInstance().getDatabase().getSquadMap().get(MyProject.getInstance().getDatabase().getAllUsers().get(game.getPlayers().get(0)).getUserData().getSquad());
+        Squad s2 = null;
+        for(BattleHandler.Pair<Squad,Squad> pair : BattleHandler.getPairs()){
+            if(pair.first().equals(s1)) s2 = pair.second();
+            if(pair.second().equals(s1)) s2 = pair.first();
+        }
+        for(String player : game.getPlayers()){
+            MyProject.getInstance().getDatabase().getAllUsers().get(player).getUserData().setStatus(UserStatus.Online);
+            ChangeStateMessage changeStateMessage = new ChangeStateMessage();
+            changeStateMessage.setUsername(player);
+            changeStateMessage.setState("Online");
+            changeStateMessage.setSquad(MyProject.getInstance().getDatabase().getAllUsers().get(player).getUserData().getSquad());
+
+            for (String user : s1.getMembers()) {
+                MyProject.getInstance().getDatabase().getClientHandlerMap().get(user).sendMessage(changeStateMessage);
+            }
+            assert s2 != null;
+            for (String user : s2.getMembers()) {
+                MyProject.getInstance().getDatabase().getClientHandlerMap().get(user).sendMessage(changeStateMessage);
+            }
+        }
+
+
+    }
+
+    private void loseCollosseumBattle(){
+        boolean lose = true;
+
+        for(String player : game.getPlayers()){
+            if(MyProject.getInstance().getDatabase().getAllUsers().get(player).getUserData().getHP()>0) lose = false;
+        }
+        if(lose) {
+            game.setPaused(true);
+
+            EndGameMessage endGameMessage = new EndGameMessage();
+            endGameMessage.setWinner("lose");
+
+            for (String player : game.getPlayers())
+                MyProject.getInstance().getDatabase().getClientHandlerMap().get(player).sendMessage(endGameMessage);
+
+            Squad s1 = MyProject.getInstance().getDatabase().getSquadMap().get(MyProject.getInstance().getDatabase().getAllUsers().get(game.getPlayers().get(0)).getUserData().getSquad());
+            Squad s2 = null;
+            for (BattleHandler.Pair<Squad, Squad> pair : BattleHandler.getPairs()) {
+                if (pair.first().equals(s1)) s2 = pair.second();
+                if (pair.second().equals(s1)) s2 = pair.first();
+            }
+            for (String player : game.getPlayers()) {
+                MyProject.getInstance().getDatabase().getAllUsers().get(player).getUserData().setStatus(UserStatus.Online);
+                ChangeStateMessage changeStateMessage = new ChangeStateMessage();
+                changeStateMessage.setUsername(player);
+                changeStateMessage.setState("Online");
+                changeStateMessage.setSquad(MyProject.getInstance().getDatabase().getAllUsers().get(player).getUserData().getSquad());
+
+                for (String user : s1.getMembers()) {
+                    MyProject.getInstance().getDatabase().getClientHandlerMap().get(user).sendMessage(changeStateMessage);
+                }
+                assert s2 != null;
+                for (String user : s2.getMembers()) {
+                    MyProject.getInstance().getDatabase().getClientHandlerMap().get(user).sendMessage(changeStateMessage);
+                }
+
+            }
+            ChangeUserDataMessage changeUserDataMessage = new ChangeUserDataMessage();
+            for (String player : game.getPlayers()) {
+                MyProject.getInstance().getDatabase().getAllUsers().get(player).getUserData().setXP(MyProject.getInstance().getDatabase().getAllUsers().get(player).getUserData().getXP() + 80);
+                changeUserDataMessage.setData("XP");
+                changeUserDataMessage.setChangedData(String.valueOf(MyProject.getInstance().getDatabase().getAllUsers().get(player).getUserData().getXP()));
+                changeUserDataMessage.setUsername(player);
+
+
+                for (String user : s1.getMembers()) {
+                    MyProject.getInstance().getDatabase().getClientHandlerMap().get(user).sendMessage(changeUserDataMessage);
+                }
+                assert s2 != null;
+                for (String user : s2.getMembers()) {
+                    MyProject.getInstance().getDatabase().getClientHandlerMap().get(user).sendMessage(changeUserDataMessage);
+                }
+            }
+        }
     }
 
     private void endMonomachiaBattle(int time) throws JsonProcessingException {

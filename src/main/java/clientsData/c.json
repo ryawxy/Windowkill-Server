@@ -1,7 +1,7 @@
 {
   "userData" : {
     "username" : "c",
-    "squad" : "x",
+    "squad" : "z",
     "status" : "Online",
     "vault" : 0,
     "numberOfMembers" : 0,
@@ -9,14 +9,14 @@
     "y" : 0,
     "color" : null,
     "activatedItems" : {
-      "CallOfPalioxis" : 0,
+      "CallOfGefjon" : 0,
       "CallOfAdonis" : 0,
-      "CallOfGefjon" : 0
+      "CallOfPalioxis" : 0
     },
     "playedMonomachia" : false,
-    "playedColosseum" : false,
-    "xp" : 9900,
-    "hp" : 100,
+    "playedColosseum" : true,
+    "xp" : 10000,
+    "hp" : 85,
     "userOnline" : false
   }
 }

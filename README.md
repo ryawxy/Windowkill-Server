@@ -9,9 +9,13 @@ This project represents the server-side component of the Window Kill game simula
 # Main Features:
 
 *Multiplayer Support*: Handles connections from multiple clients, enabling real-time online multiplayer gameplay.
+
 *Single Player Mode*: Supports offline single-player gameplay with local game management.
+
 *Java Reflection*: Utilizes reflection to dynamically manage game objects and behaviors at runtime.
+
 *TCP & UDP Protocols*: Implements TCP for reliable communication and UDP for real-time updates.
+
 *Server Management*: Manages client connections, game state updates, and network communication.
 
 # Technologies Used:
